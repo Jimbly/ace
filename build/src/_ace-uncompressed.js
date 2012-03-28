@@ -43,7 +43,7 @@
 
 (function() {
 
-var ACE_NAMESPACE = "";
+var ACE_NAMESPACE = "ace";
 
 var global = (function() {
     return this;
@@ -70,7 +70,7 @@ var _define = function(module, deps, payload) {
 };
 
 /**
- * Get at functionality define()ed using the function above
+ * Get at functionality ace.define()ed using the function above
  */
 var _require = function(parentId, module, callback) {
     if (Object.prototype.toString.call(module) === "[object Array]") {
@@ -168,7 +168,7 @@ function exportAce(ns) {
             if (typeof callback !== "function")
                 return define.apply(this, arguments);
 
-            return define(id, deps, function(require, exports, module) {
+            return ace.define(id, deps, function(require, exports, module) {
                 if (deps[2] == "module")
                     module.packaged = true;
                 return callback.apply(this, arguments);
@@ -241,7 +241,7 @@ exportAce(ACE_NAMESPACE);
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/ace', ['require', 'exports', 'module' , 'ace/lib/fixoldbrowsers', 'ace/lib/dom', 'ace/lib/event', 'ace/editor', 'ace/edit_session', 'ace/undomanager', 'ace/virtual_renderer', 'ace/worker/worker_client', 'ace/theme/textmate'], function(require, exports, module) {
+ace.define('ace/ace', ['require', 'exports', 'module' , 'ace/lib/fixoldbrowsers', 'ace/lib/dom', 'ace/lib/event', 'ace/editor', 'ace/edit_session', 'ace/undomanager', 'ace/virtual_renderer', 'ace/worker/worker_client', 'ace/theme/textmate'], function(require, exports, module) {
 "use strict";
 
 require("./lib/fixoldbrowsers");
@@ -294,7 +294,7 @@ exports.edit = function(el) {
     MIT License. http://github.com/280north/narwhal/blob/master/README.md
 */
 
-define('ace/lib/fixoldbrowsers', ['require', 'exports', 'module' , 'ace/lib/regexp', 'ace/lib/es5-shim'], function(require, exports, module) {
+ace.define('ace/lib/fixoldbrowsers', ['require', 'exports', 'module' , 'ace/lib/regexp', 'ace/lib/es5-shim'], function(require, exports, module) {
 "use strict";
 
 require("./regexp");
@@ -311,7 +311,7 @@ require("./es5-shim");
  * including support for additional syntax, flags, and methods
  */
  
-define('ace/lib/regexp', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/regexp', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
     //---------------------------------
@@ -436,7 +436,7 @@ define('ace/lib/regexp', ['require', 'exports', 'module' ], function(require, ex
     MIT License. http://github.com/280north/narwhal/blob/master/README.md
 */
 
-define('ace/lib/es5-shim', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/es5-shim', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 /**
  * Brings an environment as close to ECMAScript 5 compliance
@@ -1508,7 +1508,7 @@ var prepareString = "a"[0] != "a",
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/dom', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/dom', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var XHTML_NS = "http://www.w3.org/1999/xhtml";
@@ -1796,7 +1796,7 @@ exports.getParentWindow = function(document) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/event', ['require', 'exports', 'module' , 'ace/lib/keys', 'ace/lib/useragent', 'ace/lib/dom'], function(require, exports, module) {
+ace.define('ace/lib/event', ['require', 'exports', 'module' , 'ace/lib/keys', 'ace/lib/useragent', 'ace/lib/dom'], function(require, exports, module) {
 "use strict";
 
 var keys = require("./keys");
@@ -2116,7 +2116,7 @@ For more information about SproutCore, visit http://www.sproutcore.com
 
 // Most of the following code is taken from SproutCore with a few changes.
 
-define('ace/lib/keys', ['require', 'exports', 'module' , 'ace/lib/oop'], function(require, exports, module) {
+ace.define('ace/lib/keys', ['require', 'exports', 'module' , 'ace/lib/oop'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./oop");
@@ -2248,7 +2248,7 @@ exports.keyCodeToString = function(keyCode) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/oop', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/oop', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 exports.inherits = (function() {
@@ -2309,7 +2309,7 @@ exports.implement = function(proto, mixin) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/useragent', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/useragent', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var os = (navigator.platform.match(/mac|win|linux/i) || ["other"])[0].toLowerCase();
@@ -2417,7 +2417,7 @@ exports.getOS = function() {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/editor', ['require', 'exports', 'module' , 'ace/lib/fixoldbrowsers', 'ace/lib/oop', 'ace/lib/lang', 'ace/lib/useragent', 'ace/keyboard/textinput', 'ace/mouse/mouse_handler', 'ace/mouse/fold_handler', 'ace/keyboard/keybinding', 'ace/edit_session', 'ace/search', 'ace/range', 'ace/lib/event_emitter', 'ace/commands/command_manager', 'ace/commands/default_commands'], function(require, exports, module) {
+ace.define('ace/editor', ['require', 'exports', 'module' , 'ace/lib/fixoldbrowsers', 'ace/lib/oop', 'ace/lib/lang', 'ace/lib/useragent', 'ace/keyboard/textinput', 'ace/mouse/mouse_handler', 'ace/mouse/fold_handler', 'ace/keyboard/keybinding', 'ace/edit_session', 'ace/search', 'ace/range', 'ace/lib/event_emitter', 'ace/commands/command_manager', 'ace/commands/default_commands'], function(require, exports, module) {
 "use strict";
 
 require("./lib/fixoldbrowsers");
@@ -3646,7 +3646,7 @@ exports.Editor = Editor;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/lang', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/lang', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 exports.stringReverse = function(string) {
@@ -3798,7 +3798,7 @@ exports.deferredCall = function(fcn) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/keyboard/textinput', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/lib/useragent', 'ace/lib/dom'], function(require, exports, module) {
+ace.define('ace/keyboard/textinput', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/lib/useragent', 'ace/lib/dom'], function(require, exports, module) {
 "use strict";
 
 var event = require("../lib/event");
@@ -4076,7 +4076,7 @@ exports.TextInput = TextInput;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mouse/mouse_handler', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/mouse/default_handlers', 'ace/mouse/default_gutter_handler', 'ace/mouse/mouse_event'], function(require, exports, module) {
+ace.define('ace/mouse/mouse_handler', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/mouse/default_handlers', 'ace/mouse/default_gutter_handler', 'ace/mouse/mouse_event'], function(require, exports, module) {
 "use strict";
 
 var event = require("../lib/event");
@@ -4199,7 +4199,7 @@ exports.MouseHandler = MouseHandler;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mouse/default_handlers', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/lib/dom', 'ace/lib/browser_focus'], function(require, exports, module) {
+ace.define('ace/mouse/default_handlers', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/lib/dom', 'ace/lib/browser_focus'], function(require, exports, module) {
 "use strict";
 
 var event = require("../lib/event");
@@ -4486,7 +4486,7 @@ function calcDistance(ax, ay, bx, by) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/browser_focus', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/lib/browser_focus', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./oop");
@@ -4591,7 +4591,7 @@ exports.BrowserFocus = BrowserFocus;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/lib/event_emitter', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/event_emitter', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var EventEmitter = {};
@@ -4709,7 +4709,7 @@ exports.EventEmitter = EventEmitter;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mouse/default_gutter_handler', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mouse/default_gutter_handler', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 function GutterHandler(editor) {
@@ -4762,7 +4762,7 @@ exports.GutterHandler = GutterHandler;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mouse/mouse_event', ['require', 'exports', 'module' , 'ace/lib/event'], function(require, exports, module) {
+ace.define('ace/mouse/mouse_event', ['require', 'exports', 'module' , 'ace/lib/event'], function(require, exports, module) {
 "use strict";
 
 var event = require("../lib/event");
@@ -4907,7 +4907,7 @@ var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mouse/fold_handler', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mouse/fold_handler', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 function FoldHandler(editor) {
@@ -4978,7 +4978,7 @@ exports.FoldHandler = FoldHandler;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/keyboard/keybinding', ['require', 'exports', 'module' , 'ace/lib/keys', 'ace/lib/event', 'ace/commands/default_commands'], function(require, exports, module) {
+ace.define('ace/keyboard/keybinding', ['require', 'exports', 'module' , 'ace/lib/keys', 'ace/lib/event', 'ace/commands/default_commands'], function(require, exports, module) {
 "use strict";
 
 var keyUtil  = require("../lib/keys");
@@ -5107,7 +5107,7 @@ exports.KeyBinding = KeyBinding;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/commands/default_commands', ['require', 'exports', 'module' , 'ace/lib/lang'], function(require, exports, module) {
+ace.define('ace/commands/default_commands', ['require', 'exports', 'module' , 'ace/lib/lang'], function(require, exports, module) {
 "use strict";
 
 var lang = require("../lib/lang");
@@ -5498,7 +5498,7 @@ exports.commands = [{
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/edit_session', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/lib/event_emitter', 'ace/selection', 'ace/mode/text', 'ace/range', 'ace/document', 'ace/background_tokenizer', 'ace/edit_session/folding', 'ace/edit_session/bracket_match'], function(require, exports, module) {
+ace.define('ace/edit_session', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/lib/event_emitter', 'ace/selection', 'ace/mode/text', 'ace/range', 'ace/document', 'ace/background_tokenizer', 'ace/edit_session/folding', 'ace/edit_session/bracket_match'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -7211,7 +7211,7 @@ exports.EditSession = EditSession;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/selection', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/lib/event_emitter', 'ace/range'], function(require, exports, module) {
+ace.define('ace/selection', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/lib/event_emitter', 'ace/range'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -7720,7 +7720,7 @@ exports.Selection = Selection;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/range', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/range', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var Range = function(startRow, startColumn, endRow, endColumn) {
@@ -8041,7 +8041,7 @@ exports.Range = Range;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mode/text', ['require', 'exports', 'module' , 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/behaviour', 'ace/unicode'], function(require, exports, module) {
+ace.define('ace/mode/text', ['require', 'exports', 'module' , 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/behaviour', 'ace/unicode'], function(require, exports, module) {
 "use strict";
 
 var Tokenizer = require("../tokenizer").Tokenizer;
@@ -8259,7 +8259,7 @@ exports.Mode = Mode;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/tokenizer', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/tokenizer', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var Tokenizer = function(rules, flag) {
@@ -8426,7 +8426,7 @@ exports.Tokenizer = Tokenizer;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mode/text_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/lang'], function(require, exports, module) {
+ace.define('ace/mode/text_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/lang'], function(require, exports, module) {
 "use strict";
 
 var lang = require("../lib/lang");
@@ -8538,7 +8538,7 @@ exports.TextHighlightRules = TextHighlightRules;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mode/behaviour', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mode/behaviour', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var Behaviour = function() {
@@ -8597,7 +8597,7 @@ var Behaviour = function() {
 }).call(Behaviour.prototype);
 
 exports.Behaviour = Behaviour;
-});define('ace/unicode', ['require', 'exports', 'module' ], function(require, exports, module) {
+});ace.define('ace/unicode', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 /*
@@ -8740,7 +8740,7 @@ function addUnicodePackage (pack) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/document', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter', 'ace/range', 'ace/anchor'], function(require, exports, module) {
+ace.define('ace/document', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter', 'ace/range', 'ace/anchor'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -9146,7 +9146,7 @@ exports.Document = Document;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/anchor', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/anchor', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -9339,7 +9339,7 @@ var Anchor = exports.Anchor = function(doc, row, column) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/background_tokenizer', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/background_tokenizer', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -9516,7 +9516,7 @@ exports.BackgroundTokenizer = BackgroundTokenizer;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/edit_session/folding', ['require', 'exports', 'module' , 'ace/range', 'ace/edit_session/fold_line', 'ace/edit_session/fold', 'ace/token_iterator'], function(require, exports, module) {
+ace.define('ace/edit_session/folding', ['require', 'exports', 'module' , 'ace/range', 'ace/edit_session/fold_line', 'ace/edit_session/fold', 'ace/token_iterator'], function(require, exports, module) {
 "use strict";
 
 var Range = require("../range").Range;
@@ -10272,7 +10272,7 @@ exports.Folding = Folding;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/edit_session/fold_line', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+ace.define('ace/edit_session/fold_line', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
 "use strict";
 
 var Range = require("../range").Range;
@@ -10545,7 +10545,7 @@ exports.FoldLine = FoldLine;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/edit_session/fold', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/edit_session/fold', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 /**
@@ -10660,7 +10660,7 @@ var Fold = exports.Fold = function(range, placeholder) {
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/token_iterator', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/token_iterator', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var TokenIterator = function(session, initialRow, initialColumn) {
@@ -10777,7 +10777,7 @@ exports.TokenIterator = TokenIterator;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/edit_session/bracket_match', ['require', 'exports', 'module' , 'ace/token_iterator'], function(require, exports, module) {
+ace.define('ace/edit_session/bracket_match', ['require', 'exports', 'module' , 'ace/token_iterator'], function(require, exports, module) {
 "use strict";
 
 var TokenIterator = require("../token_iterator").TokenIterator;
@@ -10959,7 +10959,7 @@ exports.BracketMatch = BracketMatch;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/search', ['require', 'exports', 'module' , 'ace/lib/lang', 'ace/lib/oop', 'ace/range'], function(require, exports, module) {
+ace.define('ace/search', ['require', 'exports', 'module' , 'ace/lib/lang', 'ace/lib/oop', 'ace/range'], function(require, exports, module) {
 "use strict";
 
 var lang = require("./lib/lang");
@@ -11263,7 +11263,7 @@ Search.SELECTION = 2;
 
 exports.Search = Search;
 });
-define('ace/commands/command_manager', ['require', 'exports', 'module' , 'ace/lib/keys'], function(require, exports, module) {
+ace.define('ace/commands/command_manager', ['require', 'exports', 'module' , 'ace/lib/keys'], function(require, exports, module) {
 "use strict";
 
 var keyUtil = require("../lib/keys");
@@ -11502,7 +11502,7 @@ exports.CommandManager = CommandManager;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/undomanager', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/undomanager', ['require', 'exports', 'module' ], function(require, exports, module) {
 "use strict";
 
 var UndoManager = function() {
@@ -11597,7 +11597,7 @@ exports.UndoManager = UndoManager;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/virtual_renderer', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/dom', 'ace/lib/event', 'ace/lib/useragent', 'ace/layer/gutter', 'ace/layer/marker', 'ace/layer/text', 'ace/layer/cursor', 'ace/scrollbar', 'ace/renderloop', 'ace/lib/event_emitter', 'text!ace/css/editor.css'], function(require, exports, module) {
+ace.define('ace/virtual_renderer', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/dom', 'ace/lib/event', 'ace/lib/useragent', 'ace/layer/gutter', 'ace/layer/marker', 'ace/layer/text', 'ace/layer/cursor', 'ace/scrollbar', 'ace/renderloop', 'ace/lib/event_emitter', 'text!ace/css/editor.css'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -12467,7 +12467,7 @@ exports.VirtualRenderer = VirtualRenderer;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/layer/gutter', ['require', 'exports', 'module' , 'ace/lib/dom', 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/layer/gutter', ['require', 'exports', 'module' , 'ace/lib/dom', 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var dom = require("../lib/dom");
@@ -12654,7 +12654,7 @@ exports.Gutter = Gutter;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/layer/marker', ['require', 'exports', 'module' , 'ace/range', 'ace/lib/dom'], function(require, exports, module) {
+ace.define('ace/layer/marker', ['require', 'exports', 'module' , 'ace/range', 'ace/lib/dom'], function(require, exports, module) {
 "use strict";
 
 var Range = require("../range").Range;
@@ -12875,7 +12875,7 @@ exports.Marker = Marker;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/layer/text', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/dom', 'ace/lib/lang', 'ace/lib/useragent', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/layer/text', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/dom', 'ace/lib/lang', 'ace/lib/useragent', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
@@ -13447,7 +13447,7 @@ exports.Text = Text;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/layer/cursor', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+ace.define('ace/layer/cursor', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
 "use strict";
 
 var dom = require("../lib/dom");
@@ -13594,7 +13594,7 @@ exports.Cursor = Cursor;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/scrollbar', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/dom', 'ace/lib/event', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/scrollbar', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/dom', 'ace/lib/event', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -13687,7 +13687,7 @@ exports.ScrollBar = ScrollBar;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/renderloop', ['require', 'exports', 'module' , 'ace/lib/event'], function(require, exports, module) {
+ace.define('ace/renderloop', ['require', 'exports', 'module' , 'ace/lib/event'], function(require, exports, module) {
 "use strict";
 
 var event = require("./lib/event");
@@ -13723,7 +13723,7 @@ var RenderLoop = function(onRender, win) {
 
 exports.RenderLoop = RenderLoop;
 });
-define("text!ace/css/editor.css", [], "@import url(//fonts.googleapis.com/css?family=Droid+Sans+Mono);\n" +
+ace.define("text!ace/css/editor.css", [], "@import url(//fonts.googleapis.com/css?family=Droid+Sans+Mono);\n" +
   "\n" +
   "\n" +
   ".ace_editor {\n" +
@@ -14043,7 +14043,7 @@ define("text!ace/css/editor.css", [], "@import url(//fonts.googleapis.com/css?fa
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/worker/worker_client', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/worker/worker_client', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
@@ -14235,7 +14235,7 @@ exports.WorkerClient = WorkerClient;
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/theme/textmate', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+ace.define('ace/theme/textmate', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
 "use strict";
 
 exports.isDark = false;
@@ -14401,7 +14401,7 @@ dom.importCssString(exports.cssText, exports.cssClass);
 });
 ;
             (function() {
-                window.require(["ace/ace"], function(a) {
+                ace.require(["ace/ace"], function(a) {
                     if (!window.ace)
                         window.ace = {};
                     for (var key in a) if (a.hasOwnProperty(key))
@@ -14409,3 +14409,10804 @@ dom.importCssString(exports.cssText, exports.cssClass);
                 });
             })();
         
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Mozilla Skywriter.
+ *
+ * The Initial Developer of the Original Code is
+ * Mozilla.
+ * Portions created by the Initial Developer are Copyright (C) 2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Julian Viereck (julian.viereck@gmail.com)
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/keyboard/keybinding/emacs', ['require', 'exports', 'module' , 'ace/keyboard/state_handler'], function(require, exports, module) {
+"use strict";
+
+var StateHandler = require("../state_handler").StateHandler;
+var matchCharacterOnly =  require("../state_handler").matchCharacterOnly;
+
+var emacsState = {
+    start: [
+        {
+            key:    "ctrl-x",
+            then:   "c-x"
+        },
+        {
+            regex:  [ "(?:command-([0-9]*))*", "(down|ctrl-n)" ],
+            exec:   "golinedown",
+            params: [
+                {
+                    name: "times",
+                    match: 1,
+                    type: "number",
+                    defaultValue: 1
+                }
+            ]
+        },
+        {
+            regex: [ "(?:command-([0-9]*))*", "(right|ctrl-f)" ],
+            exec: "gotoright",
+            params: [
+                {
+                    name: "times",
+                    match: 1,
+                    type: "number",
+                    defaultValue: 1
+                }
+            ]
+        },
+        {
+            regex: [ "(?:command-([0-9]*))*", "(up|ctrl-p)" ],
+            exec: "golineup",
+            params: [
+                {
+                    name: "times",
+                    match: 1,
+                    type: "number",
+                    defaultValue: 1
+                }
+            ]
+        },
+        {
+            regex: [ "(?:command-([0-9]*))*", "(left|ctrl-b)" ],
+            exec: "gotoleft",
+            params: [
+                {
+                    name: "times",
+                    match: 1,
+                    type: "number",
+                    defaultValue: 1
+                }
+            ]
+        },
+        {
+            comment: "This binding matches all printable characters except numbers as long as they are no numbers and print them n times.",
+            regex:  [ "(?:command-([0-9]*))", "([^0-9]+)*" ],
+            match:  matchCharacterOnly,
+            exec:   "inserttext",
+            params: [
+                {
+                    name: "times",
+                    match: 1,
+                    type: "number",
+                    defaultValue: "1"
+                },
+                {
+                    name: "text",
+                    match: 2
+                }
+            ]
+        },
+        {
+            comment: "This binding matches numbers as long as there is no meta_number in the buffer.",
+            regex:  [ "(command-[0-9]*)*", "([0-9]+)" ],
+            match:  matchCharacterOnly,
+            disallowMatches:  [ 1 ],
+            exec:   "inserttext",
+            params: [
+                {
+                    name: "text",
+                    match: 2,
+                    type: "text"
+                }
+            ]
+        },
+        {
+            regex: [ "command-([0-9]*)", "(command-[0-9]|[0-9])" ],
+            comment: "Stops execution if the regex /meta_[0-9]+/ matches to avoid resetting the buffer."
+        }
+    ],
+    "c-x": [
+        {
+            key: "ctrl-g",
+            then: "start"
+        },
+        {
+            key: "ctrl-s",
+            exec: "save",
+            then: "start"
+        }
+    ]
+};
+
+exports.Emacs = new StateHandler(emacsState);
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Mozilla Skywriter.
+ *
+ * The Initial Developer of the Original Code is
+ * Mozilla.
+ * Portions created by the Initial Developer are Copyright (C) 2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Julian Viereck (julian.viereck@gmail.com)
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/keyboard/state_handler', ['require', 'exports', 'module' ], function(require, exports, module) {
+"use strict";
+
+// If you're developing a new keymapping and want to get an idea what's going
+// on, then enable debugging.
+var DEBUG = false;
+
+function StateHandler(keymapping) {
+    this.keymapping = this.$buildKeymappingRegex(keymapping);
+}
+
+StateHandler.prototype = {
+    /**
+     * Build the RegExp from the keymapping as RegExp can't stored directly
+     * in the metadata JSON and as the RegExp used to match the keys/buffer
+     * need to be adapted.
+     */
+    $buildKeymappingRegex: function(keymapping) {
+        for (var state in keymapping) {
+            this.$buildBindingsRegex(keymapping[state]);
+        }
+        return keymapping;
+    },
+
+    $buildBindingsRegex: function(bindings) {
+        // Escape a given Regex string.
+        bindings.forEach(function(binding) {
+            if (binding.key) {
+                binding.key = new RegExp('^' + binding.key + '$');
+            } else if (Array.isArray(binding.regex)) {
+                if (!('key' in binding))
+                  binding.key = new RegExp('^' + binding.regex[1] + '$');
+                binding.regex = new RegExp(binding.regex.join('') + '$');
+            } else if (binding.regex) {
+                binding.regex = new RegExp(binding.regex + '$');
+            }
+        });
+    },
+
+    $composeBuffer: function(data, hashId, key, e) {
+        // Initialize the data object.
+        if (data.state == null || data.buffer == null) {
+            data.state = "start";
+            data.buffer = "";
+        }
+
+        var keyArray = [];
+        if (hashId & 1) keyArray.push("ctrl");
+        if (hashId & 8) keyArray.push("command");
+        if (hashId & 2) keyArray.push("option");
+        if (hashId & 4) keyArray.push("shift");
+        if (key)        keyArray.push(key);
+
+        var symbolicName = keyArray.join("-");
+        var bufferToUse = data.buffer + symbolicName;
+
+        // Don't add the symbolic name to the key buffer if the alt_ key is
+        // part of the symbolic name. If it starts with alt_, this means
+        // that the user hit an alt keycombo and there will be a single,
+        // new character detected after this event, which then will be
+        // added to the buffer (e.g. alt_j will result in ∆).
+        //
+        // We test for 2 and not for & 2 as we only want to exclude the case where
+        // the option key is pressed alone.
+        if (hashId != 2) {
+            data.buffer = bufferToUse;
+        }
+
+        var bufferObj = {
+            bufferToUse: bufferToUse,
+            symbolicName: symbolicName,
+        };
+
+        if (e) {
+            bufferObj.keyIdentifier = e.keyIdentifier
+        }
+
+        return bufferObj;
+    },
+
+    $find: function(data, buffer, symbolicName, hashId, key, keyIdentifier) {
+        // Holds the command to execute and the args if a command matched.
+        var result = {};
+
+        // Loop over all the bindings of the keymap until a match is found.
+        this.keymapping[data.state].some(function(binding) {
+            var match;
+
+            // Check if the key matches.
+            if (binding.key && !binding.key.test(symbolicName)) {
+                return false;
+            }
+
+            // Check if the regex matches.
+            if (binding.regex && !(match = binding.regex.exec(buffer))) {
+                return false;
+            }
+
+            // Check if the match function matches.
+            if (binding.match && !binding.match(buffer, hashId, key, symbolicName, keyIdentifier)) {
+                return false;
+            }
+
+            // Check for disallowed matches.
+            if (binding.disallowMatches) {
+                for (var i = 0; i < binding.disallowMatches.length; i++) {
+                    if (!!match[binding.disallowMatches[i]]) {
+                        return false;
+                    }
+                }
+            }
+
+            // If there is a command to execute, then figure out the
+            // command and the arguments.
+            if (binding.exec) {
+                result.command = binding.exec;
+
+                // Build the arguments.
+                if (binding.params) {
+                    var value;
+                    result.args = {};
+                    binding.params.forEach(function(param) {
+                        if (param.match != null && match != null) {
+                            value = match[param.match] || param.defaultValue;
+                        } else {
+                            value = param.defaultValue;
+                        }
+
+                        if (param.type === 'number') {
+                            value = parseInt(value);
+                        }
+
+                        result.args[param.name] = value;
+                    });
+                }
+                data.buffer = "";
+            }
+
+            // Handle the 'then' property.
+            if (binding.then) {
+                data.state = binding.then;
+                data.buffer = "";
+            }
+
+            // If no command is set, then execute the "null" fake command.
+            if (result.command == null) {
+                result.command = "null";
+            }
+
+            if (DEBUG) {
+                console.log("KeyboardStateMapper#find", binding);
+            }
+            return true;
+        });
+
+        if (result.command) {
+            return result;
+        } else {
+            data.buffer = "";
+            return false;
+        }
+    },
+
+    /**
+     * This function is called by keyBinding.
+     */
+    handleKeyboard: function(data, hashId, key, keyCode, e) {
+        // If we pressed any command key but no other key, then ignore the input.
+        // Otherwise "shift-" is added to the buffer, and later on "shift-g"
+        // which results in "shift-shift-g" which doesn't make sense.
+        if (hashId != 0 && (key == "" || key == String.fromCharCode(0))) {
+            return null;
+        }
+
+        // Compute the current value of the keyboard input buffer.
+        var r = this.$composeBuffer(data, hashId, key, e);
+        var buffer = r.bufferToUse;
+        var symbolicName = r.symbolicName;
+        var keyId = r.keyIdentifier;
+
+        r = this.$find(data, buffer, symbolicName, hashId, key, keyId);
+        if (DEBUG) {
+            console.log("KeyboardStateMapper#match", buffer, symbolicName, r);
+        }
+
+        return r;
+    }
+}
+
+/**
+ * This is a useful matching function and therefore is defined here so that
+ * users of KeyboardStateMapper can use it.
+ *
+ * @return boolean
+ *          If no command key (Command|Option|Shift|Ctrl) is pressed, it
+ *          returns true. If the only the Shift key is pressed + a character
+ *          true is returned as well. Otherwise, false is returned.
+ *          Summing up, the function returns true whenever the user typed
+ *          a normal character on the keyboard and no shortcut.
+ */
+exports.matchCharacterOnly = function(buffer, hashId, key, symbolicName) {
+    // If no command keys are pressed, then catch the input.
+    if (hashId == 0) {
+        return true;
+    }
+    // If only the shift key is pressed and a character key, then
+    // catch that input as well.
+    else if ((hashId == 4) && key.length == 1) {
+        return true;
+    }
+    // Otherwise, we let the input got through.
+    else {
+        return false;
+    }
+};
+
+exports.StateHandler = StateHandler;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Mozilla Skywriter.
+ *
+ * The Initial Developer of the Original Code is
+ * Mozilla.
+ * Portions created by the Initial Developer are Copyright (C) 2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Julian Viereck (julian.viereck@gmail.com)
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/keyboard/keybinding/vim', ['require', 'exports', 'module' , 'ace/keyboard/state_handler'], function(require, exports, module) {
+"use strict";
+
+var StateHandler = require("../state_handler").StateHandler;
+var matchCharacterOnly =  require("../state_handler").matchCharacterOnly;
+
+var vimcommand = function(key, exec, then) {
+    return {
+        regex:  [ "([0-9]*)", key ],
+        exec:   exec,
+        params: [
+            {
+                name:     "times",
+                match:    1,
+                type:     "number",
+                defaultValue:     1
+            }
+        ],
+        then:   then
+    }
+}
+
+var vimStates = {
+    start: [
+        {
+            key:    "i",
+            then:   "insertMode"
+        },
+        {
+            key:    "d",
+            then:   "deleteMode"
+        },
+        {
+            key:    "a",
+            exec:   "gotoright",
+            then:   "insertMode"
+        },
+        {
+            key:    "shift-i",
+            exec:   "gotolinestart",
+            then:   "insertMode"
+        },
+        {
+            key:    "shift-a",
+            exec:   "gotolineend",
+            then:   "insertMode"
+        },
+        {
+            key:    "shift-c",
+            exec:   "removetolineend",
+            then:   "insertMode"
+        },
+        {
+            key:    "shift-r",
+            exec:   "overwrite",
+            then:   "replaceMode"
+        },
+        vimcommand("(k|up)", "golineup"),
+        vimcommand("(j|down)", "golinedown"),
+        vimcommand("(l|right)", "gotoright"),
+        vimcommand("(h|left)", "gotoleft"),
+        {
+            key:    "shift-g",
+            exec:   "gotoend"
+        },
+        vimcommand("b", "gotowordleft"),
+        vimcommand("e", "gotowordright"),
+        vimcommand("x", "del"),
+        vimcommand("shift-x", "backspace"),
+        vimcommand("shift-d", "removetolineend"),
+        vimcommand("u", "undo"), // [count] on this may/may not work, depending on browser implementation...
+        {
+            comment:    "Catch some keyboard input to stop it here",
+            match:      matchCharacterOnly
+        }
+    ],
+    insertMode: [
+        {
+            key:      "esc",
+            then:     "start"
+        }
+    ],
+    replaceMode: [
+        {
+            key:      "esc",
+            exec:     "overwrite",
+            then:     "start"
+        }
+    ],
+    deleteMode: [
+        {
+            key:      "d",
+            exec:     "removeline",
+            then:     "start"
+        }
+    ]
+};
+
+exports.Vim = new StateHandler(vimStates);
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Mozilla Skywriter.
+ *
+ * The Initial Developer of the Original Code is
+ * Mozilla.
+ * Portions created by the Initial Developer are Copyright (C) 2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Julian Viereck (julian.viereck@gmail.com)
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/keyboard/state_handler', ['require', 'exports', 'module' ], function(require, exports, module) {
+"use strict";
+
+// If you're developing a new keymapping and want to get an idea what's going
+// on, then enable debugging.
+var DEBUG = false;
+
+function StateHandler(keymapping) {
+    this.keymapping = this.$buildKeymappingRegex(keymapping);
+}
+
+StateHandler.prototype = {
+    /**
+     * Build the RegExp from the keymapping as RegExp can't stored directly
+     * in the metadata JSON and as the RegExp used to match the keys/buffer
+     * need to be adapted.
+     */
+    $buildKeymappingRegex: function(keymapping) {
+        for (var state in keymapping) {
+            this.$buildBindingsRegex(keymapping[state]);
+        }
+        return keymapping;
+    },
+
+    $buildBindingsRegex: function(bindings) {
+        // Escape a given Regex string.
+        bindings.forEach(function(binding) {
+            if (binding.key) {
+                binding.key = new RegExp('^' + binding.key + '$');
+            } else if (Array.isArray(binding.regex)) {
+                if (!('key' in binding))
+                  binding.key = new RegExp('^' + binding.regex[1] + '$');
+                binding.regex = new RegExp(binding.regex.join('') + '$');
+            } else if (binding.regex) {
+                binding.regex = new RegExp(binding.regex + '$');
+            }
+        });
+    },
+
+    $composeBuffer: function(data, hashId, key, e) {
+        // Initialize the data object.
+        if (data.state == null || data.buffer == null) {
+            data.state = "start";
+            data.buffer = "";
+        }
+
+        var keyArray = [];
+        if (hashId & 1) keyArray.push("ctrl");
+        if (hashId & 8) keyArray.push("command");
+        if (hashId & 2) keyArray.push("option");
+        if (hashId & 4) keyArray.push("shift");
+        if (key)        keyArray.push(key);
+
+        var symbolicName = keyArray.join("-");
+        var bufferToUse = data.buffer + symbolicName;
+
+        // Don't add the symbolic name to the key buffer if the alt_ key is
+        // part of the symbolic name. If it starts with alt_, this means
+        // that the user hit an alt keycombo and there will be a single,
+        // new character detected after this event, which then will be
+        // added to the buffer (e.g. alt_j will result in ∆).
+        //
+        // We test for 2 and not for & 2 as we only want to exclude the case where
+        // the option key is pressed alone.
+        if (hashId != 2) {
+            data.buffer = bufferToUse;
+        }
+
+        var bufferObj = {
+            bufferToUse: bufferToUse,
+            symbolicName: symbolicName,
+        };
+
+        if (e) {
+            bufferObj.keyIdentifier = e.keyIdentifier
+        }
+
+        return bufferObj;
+    },
+
+    $find: function(data, buffer, symbolicName, hashId, key, keyIdentifier) {
+        // Holds the command to execute and the args if a command matched.
+        var result = {};
+
+        // Loop over all the bindings of the keymap until a match is found.
+        this.keymapping[data.state].some(function(binding) {
+            var match;
+
+            // Check if the key matches.
+            if (binding.key && !binding.key.test(symbolicName)) {
+                return false;
+            }
+
+            // Check if the regex matches.
+            if (binding.regex && !(match = binding.regex.exec(buffer))) {
+                return false;
+            }
+
+            // Check if the match function matches.
+            if (binding.match && !binding.match(buffer, hashId, key, symbolicName, keyIdentifier)) {
+                return false;
+            }
+
+            // Check for disallowed matches.
+            if (binding.disallowMatches) {
+                for (var i = 0; i < binding.disallowMatches.length; i++) {
+                    if (!!match[binding.disallowMatches[i]]) {
+                        return false;
+                    }
+                }
+            }
+
+            // If there is a command to execute, then figure out the
+            // command and the arguments.
+            if (binding.exec) {
+                result.command = binding.exec;
+
+                // Build the arguments.
+                if (binding.params) {
+                    var value;
+                    result.args = {};
+                    binding.params.forEach(function(param) {
+                        if (param.match != null && match != null) {
+                            value = match[param.match] || param.defaultValue;
+                        } else {
+                            value = param.defaultValue;
+                        }
+
+                        if (param.type === 'number') {
+                            value = parseInt(value);
+                        }
+
+                        result.args[param.name] = value;
+                    });
+                }
+                data.buffer = "";
+            }
+
+            // Handle the 'then' property.
+            if (binding.then) {
+                data.state = binding.then;
+                data.buffer = "";
+            }
+
+            // If no command is set, then execute the "null" fake command.
+            if (result.command == null) {
+                result.command = "null";
+            }
+
+            if (DEBUG) {
+                console.log("KeyboardStateMapper#find", binding);
+            }
+            return true;
+        });
+
+        if (result.command) {
+            return result;
+        } else {
+            data.buffer = "";
+            return false;
+        }
+    },
+
+    /**
+     * This function is called by keyBinding.
+     */
+    handleKeyboard: function(data, hashId, key, keyCode, e) {
+        // If we pressed any command key but no other key, then ignore the input.
+        // Otherwise "shift-" is added to the buffer, and later on "shift-g"
+        // which results in "shift-shift-g" which doesn't make sense.
+        if (hashId != 0 && (key == "" || key == String.fromCharCode(0))) {
+            return null;
+        }
+
+        // Compute the current value of the keyboard input buffer.
+        var r = this.$composeBuffer(data, hashId, key, e);
+        var buffer = r.bufferToUse;
+        var symbolicName = r.symbolicName;
+        var keyId = r.keyIdentifier;
+
+        r = this.$find(data, buffer, symbolicName, hashId, key, keyId);
+        if (DEBUG) {
+            console.log("KeyboardStateMapper#match", buffer, symbolicName, r);
+        }
+
+        return r;
+    }
+}
+
+/**
+ * This is a useful matching function and therefore is defined here so that
+ * users of KeyboardStateMapper can use it.
+ *
+ * @return boolean
+ *          If no command key (Command|Option|Shift|Ctrl) is pressed, it
+ *          returns true. If the only the Shift key is pressed + a character
+ *          true is returned as well. Otherwise, false is returned.
+ *          Summing up, the function returns true whenever the user typed
+ *          a normal character on the keyboard and no shortcut.
+ */
+exports.matchCharacterOnly = function(buffer, hashId, key, symbolicName) {
+    // If no command keys are pressed, then catch the input.
+    if (hashId == 0) {
+        return true;
+    }
+    // If only the shift key is pressed and a character key, then
+    // catch that input as well.
+    else if ((hashId == 4) && key.length == 1) {
+        return true;
+    }
+    // Otherwise, we let the input got through.
+    else {
+        return false;
+    }
+};
+
+exports.StateHandler = StateHandler;
+});
+
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *      Gastón Kleiman <gaston.kleiman AT gmail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/c_cpp', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/c_cpp_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range', 'ace/mode/behaviour/cstyle', 'ace/mode/folding/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var c_cppHighlightRules = require("./c_cpp_highlight_rules").c_cppHighlightRules;
+var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+var Range = require("../range").Range;
+var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+
+var Mode = function() {
+    this.$tokenizer = new Tokenizer(new c_cppHighlightRules().getRules());
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CstyleBehaviour();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.toggleCommentLines = function(state, doc, startRow, endRow) {
+        var outdent = true;
+        var re = /^(\s*)\/\//;
+
+        for (var i=startRow; i<= endRow; i++) {
+            if (!re.test(doc.getLine(i))) {
+                outdent = false;
+                break;
+            }
+        }
+
+        if (outdent) {
+            var deleteRange = new Range(0, 0, 0, 0);
+            for (var i=startRow; i<= endRow; i++)
+            {
+                var line = doc.getLine(i);
+                var m = line.match(re);
+                deleteRange.start.row = i;
+                deleteRange.end.row = i;
+                deleteRange.end.column = m[0].length;
+                doc.replace(deleteRange, m[1]);
+            }
+        }
+        else {
+            doc.indentRows(startRow, endRow, "//");
+        }
+    };
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.$tokenizer.getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        } else if (state == "doc-start") {
+            if (endState == "start") {
+                return "";
+            }
+            var match = line.match(/^\s*(\/?)\*/);
+            if (match) {
+                if (match[1]) {
+                    indent += " ";
+                }
+                indent += "* ";
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *      Gastón Kleiman <gaston.kleiman AT gmail DOT com>
+ *
+ * Based on Bespin's C/C++ Syntax Plugin by Marc McIntyre.
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/c_cpp_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/mode/doc_comment_highlight_rules', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var lang = require("../lib/lang");
+var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var c_cppHighlightRules = function() {
+
+    var keywords = lang.arrayToMap(
+        ("and|double|not_eq|throw|and_eq|dynamic_cast|operator|true|" +
+        "asm|else|or|try|auto|enum|or_eq|typedef|bitand|explicit|private|" +
+        "typeid|bitor|extern|protected|typename|bool|false|public|union|" +
+        "break|float|register|unsigned|case|fro|reinterpret-cast|using|catch|" +
+        "friend|return|virtual|char|goto|short|void|class|if|signed|volatile|" +
+        "compl|inline|sizeof|wchar_t|const|int|static|while|const-cast|long|" +
+        "static_cast|xor|continue|mutable|struct|xor_eq|default|namespace|" +
+        "switch|delete|new|template|do|not|this|for").split("|")
+    );
+
+    var buildinConstants = lang.arrayToMap(
+        ("NULL").split("|")
+    );
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            },
+            new DocCommentHighlightRules().getStartRule("doc-start"),
+            {
+                token : "comment", // multi line comment
+                merge : true,
+                regex : "\\/\\*",
+                next : "comment"
+            }, {
+                token : "string", // single line
+                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+            }, {
+                token : "string", // multi line string start
+                merge : true,
+                regex : '["].*\\\\$',
+                next : "qqstring"
+            }, {
+                token : "string", // single line
+                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+            }, {
+                token : "string", // multi line string start
+                merge : true,
+                regex : "['].*\\\\$",
+                next : "qstring"
+            }, {
+                token : "constant.numeric", // hex
+                regex : "0[xX][0-9a-fA-F]+\\b"
+            }, {
+                token : "constant.numeric", // float
+                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+            }, {
+              token : "constant", // <CONSTANT>
+              regex : "<[a-zA-Z0-9.]+>"
+            }, {
+              token : "keyword", // pre-compiler directivs
+              regex : "(?:#include|#pragma|#line|#define|#undef|#ifdef|#else|#elif|#endif|#ifndef)"
+          }, {
+                token : function(value) {
+                    if (value == "this")
+                        return "variable.language";
+                    else if (keywords.hasOwnProperty(value))
+                        return "keyword";
+                    else if (buildinConstants.hasOwnProperty(value))
+                        return "constant.language";
+                    else
+                        return "identifier";
+                },
+                regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+            }, {
+                token : "keyword.operator",
+                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|==|=|!=|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|new|delete|typeof|void)"
+            }, {
+              token : "punctuation.operator",
+              regex : "\\?|\\:|\\,|\\;|\\."
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment", // closing comment
+                regex : ".*?\\*\\/",
+                next : "start"
+            }, {
+                token : "comment", // comment spanning whole line
+                merge : true,
+                regex : ".+"
+            }
+        ],
+        "qqstring" : [
+            {
+                token : "string",
+                regex : '(?:(?:\\\\.)|(?:[^"\\\\]))*?"',
+                next : "start"
+            }, {
+                token : "string",
+                merge : true,
+                regex : '.+'
+            }
+        ],
+        "qstring" : [
+            {
+                token : "string",
+                regex : "(?:(?:\\\\.)|(?:[^'\\\\]))*?'",
+                next : "start"
+            }, {
+                token : "string",
+                merge : true,
+                regex : '.+'
+            }
+        ]
+    };
+    
+    this.embedRules(DocCommentHighlightRules, "doc-",
+        [ new DocCommentHighlightRules().getEndRule("start") ]);
+};
+
+oop.inherits(c_cppHighlightRules, TextHighlightRules);
+
+exports.c_cppHighlightRules = c_cppHighlightRules;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/doc_comment_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var DocCommentHighlightRules = function() {
+
+    this.$rules = {
+        "start" : [ {
+            token : "comment.doc.tag",
+            regex : "@[\\w\\d_]+" // TODO: fix email addresses
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "\\s+"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "TODO"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "[^@\\*]+"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "."
+        }]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+(function() {
+
+    this.getStartRule = function(start) {
+        return {
+            token : "comment.doc", // doc comment
+            merge : true,
+            regex : "\\/\\*(?=\\*)",
+            next  : start
+        };
+    };
+    
+    this.getEndRule = function (start) {
+        return {
+            token : "comment.doc", // closing comment
+            merge : true,
+            regex : "\\*\\/",
+            next  : start
+        };
+    };
+
+}).call(DocCommentHighlightRules.prototype);
+
+exports.DocCommentHighlightRules = DocCommentHighlightRules;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/matching_brace_outdent', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../range").Range;
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        var match = line.match(/^(\s+)/);
+        if (match) {
+            return match[1];
+        }
+
+        return "";
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+});
+/* vim:ts=4:sts=4:sw=4:
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Chris Spencer <chris.ag.spencer AT googlemail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/behaviour/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/behaviour'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Behaviour = require('../behaviour').Behaviour;
+
+var CstyleBehaviour = function () {
+
+    this.add("braces", "insertion", function (state, action, editor, session, text) {
+        if (text == '{') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '{' + selected + '}',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '{}',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == '}') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var matching = session.$findOpeningBracket('}', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        } else if (text == "\n") {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var openBracePos = session.findMatchingBracket({row: cursor.row, column: cursor.column + 1});
+                if (!openBracePos)
+                     return null;
+
+                var indent = this.getNextLineIndent(state, line.substring(0, line.length - 1), session.getTabString());
+                var next_indent = this.$getIndent(session.doc.getLine(openBracePos.row));
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent,
+                    selection: [1, indent.length, 1, indent.length]
+                }
+            }
+        }
+    });
+
+    this.add("braces", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '{') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.end.column, range.end.column + 1);
+            if (rightChar == '}') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("parens", "insertion", function (state, action, editor, session, text) {
+        if (text == '(') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '(' + selected + ')',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '()',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == ')') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == ')') {
+                var matching = session.$findOpeningBracket(')', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("parens", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '(') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == ')') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("string_dquotes", "insertion", function (state, action, editor, session, text) {
+        if (text == '"') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '"' + selected + '"',
+                    selection: false
+                }
+            } else {
+                var cursor = editor.getCursorPosition();
+                var line = session.doc.getLine(cursor.row);
+                var leftChar = line.substring(cursor.column-1, cursor.column);
+
+                // We're escaped.
+                if (leftChar == '\\') {
+                    return null;
+                }
+
+                // Find what token we're inside.
+                var tokens = session.getTokens(selection.start.row, selection.start.row)[0].tokens;
+                var col = 0, token;
+                var quotepos = -1; // Track whether we're inside an open quote.
+
+                for (var x = 0; x < tokens.length; x++) {
+                    token = tokens[x];
+                    if (token.type == "string") {
+                      quotepos = -1;
+                    } else if (quotepos < 0) {
+                      quotepos = token.value.indexOf('"');
+                    }
+                    if ((token.value.length + col) > selection.start.column) {
+                        break;
+                    }
+                    col += tokens[x].value.length;
+                }
+
+                // Try and be smart about when we auto insert.
+                if (!token || (quotepos < 0 && token.type !== "comment" && (token.type !== "string" || ((selection.start.column !== token.value.length+col-1) && token.value.lastIndexOf('"') === token.value.length-1)))) {
+                    return {
+                        text: '""',
+                        selection: [1,1]
+                    }
+                } else if (token && token.type === "string") {
+                    // Ignore input and move right one if we're typing over the closing quote.
+                    var rightChar = line.substring(cursor.column, cursor.column + 1);
+                    if (rightChar == '"') {
+                        return {
+                            text: '',
+                            selection: [1, 1]
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("string_dquotes", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '"') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == '"') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+}
+oop.inherits(CstyleBehaviour, Behaviour);
+
+exports.CstyleBehaviour = CstyleBehaviour;
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/range', 'ace/mode/folding/fold_mode'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Range = require("../../range").Range;
+var BaseFoldMode = require("./fold_mode").FoldMode;
+
+var FoldMode = exports.FoldMode = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.foldingStartMarker = /(\{|\[)[^\}\]]*$|^\s*(\/\*)/;
+    this.foldingStopMarker = /^[^\[\{]*(\}|\])|^[\s\*]*(\*\/)/;
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var match = line.match(this.foldingStartMarker);
+        if (match) {
+            var i = match.index;
+
+            if (match[1])
+                return this.openingBracketBlock(session, match[1], row, i);
+
+            var range = session.getCommentFoldRange(row, i + match[0].length);
+            range.end.column -= 2;
+            return range;
+        }
+
+        if (foldStyle !== "markbeginend")
+            return;
+            
+        var match = line.match(this.foldingStopMarker);
+        if (match) {
+            var i = match.index + match[0].length;
+
+            if (match[2]) {
+                var range = session.getCommentFoldRange(row, i);
+                range.end.column -= 2;
+                return range;
+            }
+
+            var end = {row: row, column: i};
+            var start = session.$findOpeningBracket(match[1], end);
+            
+            if (!start)
+                return;
+
+            start.column++;
+            end.column--;
+
+            return  Range.fromPoints(start, end);
+        }
+    };
+    
+}).call(FoldMode.prototype);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/fold_mode', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../../range").Range;
+
+var FoldMode = exports.FoldMode = function() {};
+
+(function() {
+
+    this.foldingStartMarker = null;
+    this.foldingStopMarker = null;
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        if (this.foldingStartMarker.test(line))
+            return "start";
+        if (foldStyle == "markbeginend"
+                && this.foldingStopMarker
+                && this.foldingStopMarker.test(line))
+            return "end";
+        return "";
+    };
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        return null;
+    };
+
+    this.indentationBlock = function(session, row, column) {
+        var re = /^\s*/;
+        var startRow = row;
+        var endRow = row;
+        var line = session.getLine(row);
+        var startColumn = column || line.length;
+        var startLevel = line.match(re)[0].length;
+        var maxRow = session.getLength()
+        
+        while (++row < maxRow) {
+            line = session.getLine(row);
+            var level = line.match(re)[0].length;
+
+            if (level == line.length)
+                continue;
+
+            if (level <= startLevel)
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+    this.openingBracketBlock = function(session, bracket, row, column) {
+        var start = {row: row, column: column + 1};
+        var end = session.$findClosingBracket(bracket, start);
+        if (!end)
+            return;
+
+        var fw = session.foldWidgets[end.row];
+        if (fw == null)
+            fw = this.getFoldWidget(session, end.row);
+
+        if (fw == "start") {
+            end.row --;
+            end.column = session.getLine(end.row).length;
+        }
+        return Range.fromPoints(start, end);
+    };
+
+}).call(FoldMode.prototype);
+
+});
+
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/css', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/css_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/worker/worker_client', 'ace/mode/folding/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
+var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+var WorkerClient = require("../worker/worker_client").WorkerClient;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+
+var Mode = function() {
+    this.$tokenizer = new Tokenizer(new CssHighlightRules().getRules(), "i");
+    this.$outdent = new MatchingBraceOutdent();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.foldingRules = "cStyle";
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        // ignore braces in comments
+        var tokens = this.$tokenizer.getLineTokens(line, state).tokens;
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        var match = line.match(/^.*\{\s*$/);
+        if (match) {
+            indent += tab;
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+    
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "worker-css.js", "ace/mode/css_worker", "Worker");
+        worker.attachToDocument(session.getDocument());
+        
+        worker.on("csslint", function(e) {
+            var errors = [];
+            e.data.forEach(function(message) {
+                errors.push({
+                    row: message.line - 1,
+                    column: message.col - 1,
+                    text: message.message,
+                    type: message.type,
+                    lint: message
+                });
+            });
+            
+            session.setAnnotations(errors);
+        });
+        return worker;
+    };
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/css_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var lang = require("../lib/lang");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var CssHighlightRules = function() {
+
+    var properties = lang.arrayToMap(
+        ("-moz-appearance|-moz-box-sizing|-webkit-box-sizing|-moz-outline-radius|-moz-transform|-webkit-transform|" +
+        "appearance|azimuth|background-attachment|background-color|background-image|" +
+        "background-origin|background-position|background-repeat|background|border-bottom-color|" +
+        "border-bottom-style|border-bottom-width|border-bottom|border-collapse|" +
+        "border-color|border-left-color|border-left-style|border-left-width|" +
+        "border-left|border-right-color|border-right-style|border-right-width|" +
+        "border-right|border-spacing|border-style|border-top-color|" +
+        "border-top-style|border-top-width|border-top|border-width|border|" +
+        "bottom|box-sizing|caption-side|clear|clip|color|content|counter-increment|" +
+        "counter-reset|cue-after|cue-before|cue|cursor|direction|display|" +
+        "elevation|empty-cells|float|font-family|font-size-adjust|font-size|" +
+        "font-stretch|font-style|font-variant|font-weight|font|height|left|" +
+        "letter-spacing|line-height|list-style-image|list-style-position|" +
+        "list-style-type|list-style|margin-bottom|margin-left|margin-right|" +
+        "margin-top|marker-offset|margin|marks|max-height|max-width|min-height|" +
+        "min-width|-moz-border-radius|opacity|orphans|outline-color|outline-offset|outline-radius|" +
+        "outline-style|outline-width|outline|overflow|overflow-x|overflow-y|padding-bottom|" +
+        "padding-left|padding-right|padding-top|padding|page-break-after|" +
+        "page-break-before|page-break-inside|page|pause-after|pause-before|" +
+        "pause|pitch-range|pitch|play-during|pointer-events|position|quotes|resize|richness|right|" +
+        "size|speak-header|speak-numeral|speak-punctuation|speech-rate|speak|" +
+        "stress|table-layout|text-align|text-decoration|text-indent|" +
+        "text-shadow|text-transform|top|transform|unicode-bidi|vertical-align|" +
+        "visibility|voice-family|volume|white-space|widows|width|word-spacing|" +
+        "z-index").split("|")
+    );
+
+    var functions = lang.arrayToMap(
+        ("rgb|rgba|url|attr|counter|counters").split("|")
+    );
+
+    var constants = lang.arrayToMap(
+        ("absolute|all-scroll|always|armenian|auto|baseline|below|bidi-override|" +
+        "block|bold|bolder|border-box|both|bottom|break-all|break-word|capitalize|center|" +
+        "char|circle|cjk-ideographic|col-resize|collapse|content-box|crosshair|dashed|" +
+        "decimal-leading-zero|decimal|default|disabled|disc|" +
+        "distribute-all-lines|distribute-letter|distribute-space|" +
+        "distribute|dotted|double|e-resize|ellipsis|fixed|georgian|groove|" +
+        "hand|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|" +
+        "ideograph-alpha|ideograph-numeric|ideograph-parenthesis|" +
+        "ideograph-space|inactive|inherit|inline-block|inline|inset|inside|" +
+        "inter-ideograph|inter-word|italic|justify|katakana-iroha|katakana|" +
+        "keep-all|left|lighter|line-edge|line-through|line|list-item|loose|" +
+        "lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|" +
+        "medium|middle|move|n-resize|ne-resize|newspaper|no-drop|no-repeat|" +
+        "nw-resize|none|normal|not-allowed|nowrap|oblique|outset|outside|" +
+        "overline|pointer|progress|relative|repeat-x|repeat-y|repeat|right|" +
+        "ridge|row-resize|rtl|s-resize|scroll|se-resize|separate|small-caps|" +
+        "solid|square|static|strict|super|sw-resize|table-footer-group|" +
+        "table-header-group|tb-rl|text-bottom|text-top|text|thick|thin|top|" +
+        "transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|" +
+        "vertical-ideographic|vertical-text|visible|w-resize|wait|whitespace|" +
+        "zero").split("|")
+    );
+
+    var colors = lang.arrayToMap(
+        ("aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|" +
+        "purple|red|silver|teal|white|yellow").split("|")
+    );
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    var numRe = "\\-?(?:(?:[0-9]+)|(?:[0-9]*\\.[0-9]+))";
+
+    var base_ruleset = [
+        {
+            token : "comment", // multi line comment
+            merge : true,
+            regex : "\\/\\*",
+            next : "ruleset_comment"
+        },{
+            token : "string", // single line
+            regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+        }, {
+            token : "string", // single line
+            regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+        }, {
+            token : "constant.numeric",
+            regex : numRe + "(?:em|ex|px|cm|mm|in|pt|pc|deg|rad|grad|ms|s|hz|khz|%)"
+        }, {
+            token : "constant.numeric",  // hex6 color
+            regex : "#[a-f0-9]{6}"
+        }, {
+            token : "constant.numeric", // hex3 color
+            regex : "#[a-f0-9]{3}"
+        }, {
+            token : function(value) {
+                if (properties.hasOwnProperty(value.toLowerCase())) {
+                    return "support.type";
+                }
+                else if (functions.hasOwnProperty(value.toLowerCase())) {
+                    return "support.function";
+                }
+                else if (constants.hasOwnProperty(value.toLowerCase())) {
+                    return "support.constant";
+                }
+                else if (colors.hasOwnProperty(value.toLowerCase())) {
+                    return "support.constant.color";
+                }
+                else {
+                    return "text";
+                }
+            },
+            regex : "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*"
+        }
+      ];
+
+    var ruleset = lang.copyArray(base_ruleset);
+    ruleset.unshift({
+        token : "paren.rparen",
+        regex : "\\}",
+        next:   "start"
+    });
+
+    var media_ruleset = lang.copyArray( base_ruleset );
+    media_ruleset.unshift({
+        token : "paren.rparen",
+        regex : "\\}",
+        next:   "media"
+    });
+
+    var base_comment = [{
+          token : "comment", // comment spanning whole line
+          merge : true,
+          regex : ".+"
+    }];
+
+    var comment = lang.copyArray(base_comment);
+    comment.unshift({
+          token : "comment", // closing comment
+          regex : ".*?\\*\\/",
+          next : "start"
+    });
+
+    var media_comment = lang.copyArray(base_comment);
+    media_comment.unshift({
+          token : "comment", // closing comment
+          regex : ".*?\\*\\/",
+          next : "media"
+    });
+
+    var ruleset_comment = lang.copyArray(base_comment);
+    ruleset_comment.unshift({
+          token : "comment", // closing comment
+          regex : ".*?\\*\\/",
+          next : "ruleset"
+    });
+
+    this.$rules = {
+        "start" : [{
+            token : "comment", // multi line comment
+            merge : true,
+            regex : "\\/\\*",
+            next : "comment"
+        }, {
+            token: "paren.lparen",
+            regex: "\\{",
+            next:  "ruleset"
+        }, {
+            token: "string",
+            regex: "@.*?{",
+            next:  "media"
+        },{
+            token: "keyword",
+            regex: "#[a-z0-9-_]+"
+        },{
+            token: "variable",
+            regex: "\\.[a-z0-9-_]+"
+        },{
+            token: "string",
+            regex: ":[a-z0-9-_]+"
+        },{
+            token: "constant",
+            regex: "[a-z0-9-_]+"
+        }],
+
+        "media" : [ {
+            token : "comment", // multi line comment
+            merge : true,
+            regex : "\\/\\*",
+            next : "media_comment"
+        }, {
+            token: "paren.lparen",
+            regex: "\\{",
+            next:  "media_ruleset"
+        },{
+            token: "string",
+            regex: "\\}",
+            next:  "start"
+        },{
+            token: "keyword",
+            regex: "#[a-z0-9-_]+"
+        },{
+            token: "variable",
+            regex: "\\.[a-z0-9-_]+"
+        },{
+            token: "string",
+            regex: ":[a-z0-9-_]+"
+        },{
+            token: "constant",
+            regex: "[a-z0-9-_]+"
+        }],
+
+        "comment" : comment,
+
+        "ruleset" : ruleset,
+        "ruleset_comment" : ruleset_comment,
+
+        "media_ruleset" : media_ruleset,
+        "media_comment" : media_comment
+    };
+};
+
+oop.inherits(CssHighlightRules, TextHighlightRules);
+
+exports.CssHighlightRules = CssHighlightRules;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/matching_brace_outdent', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../range").Range;
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        var match = line.match(/^(\s+)/);
+        if (match) {
+            return match[1];
+        }
+
+        return "";
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/range', 'ace/mode/folding/fold_mode'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Range = require("../../range").Range;
+var BaseFoldMode = require("./fold_mode").FoldMode;
+
+var FoldMode = exports.FoldMode = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.foldingStartMarker = /(\{|\[)[^\}\]]*$|^\s*(\/\*)/;
+    this.foldingStopMarker = /^[^\[\{]*(\}|\])|^[\s\*]*(\*\/)/;
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var match = line.match(this.foldingStartMarker);
+        if (match) {
+            var i = match.index;
+
+            if (match[1])
+                return this.openingBracketBlock(session, match[1], row, i);
+
+            var range = session.getCommentFoldRange(row, i + match[0].length);
+            range.end.column -= 2;
+            return range;
+        }
+
+        if (foldStyle !== "markbeginend")
+            return;
+            
+        var match = line.match(this.foldingStopMarker);
+        if (match) {
+            var i = match.index + match[0].length;
+
+            if (match[2]) {
+                var range = session.getCommentFoldRange(row, i);
+                range.end.column -= 2;
+                return range;
+            }
+
+            var end = {row: row, column: i};
+            var start = session.$findOpeningBracket(match[1], end);
+            
+            if (!start)
+                return;
+
+            start.column++;
+            end.column--;
+
+            return  Range.fromPoints(start, end);
+        }
+    };
+    
+}).call(FoldMode.prototype);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/fold_mode', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../../range").Range;
+
+var FoldMode = exports.FoldMode = function() {};
+
+(function() {
+
+    this.foldingStartMarker = null;
+    this.foldingStopMarker = null;
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        if (this.foldingStartMarker.test(line))
+            return "start";
+        if (foldStyle == "markbeginend"
+                && this.foldingStopMarker
+                && this.foldingStopMarker.test(line))
+            return "end";
+        return "";
+    };
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        return null;
+    };
+
+    this.indentationBlock = function(session, row, column) {
+        var re = /^\s*/;
+        var startRow = row;
+        var endRow = row;
+        var line = session.getLine(row);
+        var startColumn = column || line.length;
+        var startLevel = line.match(re)[0].length;
+        var maxRow = session.getLength()
+        
+        while (++row < maxRow) {
+            line = session.getLine(row);
+            var level = line.match(re)[0].length;
+
+            if (level == line.length)
+                continue;
+
+            if (level <= startLevel)
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+    this.openingBracketBlock = function(session, bracket, row, column) {
+        var start = {row: row, column: column + 1};
+        var end = session.$findClosingBracket(bracket, start);
+        if (!end)
+            return;
+
+        var fw = session.foldWidgets[end.row];
+        if (fw == null)
+            fw = this.getFoldWidget(session, end.row);
+
+        if (fw == "start") {
+            end.row --;
+            end.column = session.getLine(end.row).length;
+        }
+        return Range.fromPoints(start, end);
+    };
+
+}).call(FoldMode.prototype);
+
+});
+
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/html', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/javascript', 'ace/mode/css', 'ace/tokenizer', 'ace/mode/html_highlight_rules', 'ace/mode/behaviour/xml', 'ace/mode/folding/html'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var JavaScriptMode = require("./javascript").Mode;
+var CssMode = require("./css").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
+var XmlBehaviour = require("./behaviour/xml").XmlBehaviour;
+var HtmlFoldMode = require("./folding/html").FoldMode;
+
+var Mode = function() {
+    var highlighter = new HtmlHighlightRules();
+    this.$tokenizer = new Tokenizer(highlighter.getRules());
+    this.$behaviour = new XmlBehaviour();
+    
+    this.$embeds = highlighter.getEmbeds();
+    this.createModeDelegates({
+        "js-": JavaScriptMode,
+        "css-": CssMode
+    });
+    
+    this.foldingRules = new HtmlFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    
+    this.toggleCommentLines = function(state, doc, startRow, endRow) {
+        return 0;
+    };
+
+    this.getNextLineIndent = function(state, line, tab) {
+        return this.$getIndent(line);
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return false;
+    };
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/javascript', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/javascript_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range', 'ace/worker/worker_client', 'ace/mode/behaviour/cstyle', 'ace/mode/folding/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
+var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+var Range = require("../range").Range;
+var WorkerClient = require("../worker/worker_client").WorkerClient;
+var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+
+var Mode = function() {
+    this.$tokenizer = new Tokenizer(new JavaScriptHighlightRules().getRules());
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CstyleBehaviour();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+
+    this.toggleCommentLines = function(state, doc, startRow, endRow) {
+        var outdent = true;
+        var re = /^(\s*)\/\//;
+
+        for (var i=startRow; i<= endRow; i++) {
+            if (!re.test(doc.getLine(i))) {
+                outdent = false;
+                break;
+            }
+        }
+
+        if (outdent) {
+            var deleteRange = new Range(0, 0, 0, 0);
+            for (var i=startRow; i<= endRow; i++)
+            {
+                var line = doc.getLine(i);
+                var m = line.match(re);
+                deleteRange.start.row = i;
+                deleteRange.end.row = i;
+                deleteRange.end.column = m[0].length;
+                doc.replace(deleteRange, m[1]);
+            }
+        }
+        else {
+            doc.indentRows(startRow, endRow, "//");
+        }
+    };
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.$tokenizer.getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+        
+        if (state == "start" || state == "regex_allowed") {
+            var match = line.match(/^.*(?:\bcase\b.*\:|[\{\(\[])\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        } else if (state == "doc-start") {
+            if (endState == "start" || state == "regex_allowed") {
+                return "";
+            }
+            var match = line.match(/^\s*(\/?)\*/);
+            if (match) {
+                if (match[1]) {
+                    indent += " ";
+                }
+                indent += "* ";
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+    
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "worker-javascript.js", "ace/mode/javascript_worker", "JavaScriptWorker");
+        worker.attachToDocument(session.getDocument());
+            
+        worker.on("jslint", function(results) {
+            var errors = [];
+            for (var i=0; i<results.data.length; i++) {
+                var error = results.data[i];
+                if (error)
+                    errors.push({
+                        row: error.line-1,
+                        column: error.character-1,
+                        text: error.reason,
+                        type: "warning",
+                        lint: error
+                    });
+            }
+            session.setAnnotations(errors);
+        });
+        
+        worker.on("narcissus", function(e) {
+            session.setAnnotations([e.data]);
+        });
+        
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+        
+        return worker;
+    };
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *      Mihai Sucan <mihai DOT sucan AT gmail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/javascript_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/unicode', 'ace/mode/doc_comment_highlight_rules', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var lang = require("../lib/lang");
+var unicode = require("../unicode");
+var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var JavaScriptHighlightRules = function() {
+
+    // see: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects
+    var globals = lang.arrayToMap(
+      // Constructors
+        ("Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|" +
+      // E4X
+         "Namespace|QName|XML|XMLList|" +
+         "ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|" +
+         "Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|" +
+      // Errors
+        "Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|" +
+        "SyntaxError|TypeError|URIError|" +
+      //  Non-constructor functions
+        "decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|" +
+        "isNaN|parseFloat|parseInt|" +
+      // Other
+        "JSON|Math|" +
+      // Pseudo
+        "this|arguments|prototype|window|document"
+      ).split("|")
+    );
+
+    var keywords = lang.arrayToMap(
+        ("break|case|catch|continue|default|delete|do|else|finally|for|function|" +
+        "if|in|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|" +
+        "const|yield|import|get|set").split("|")
+    );
+
+    // keywords which can be followed by regular expressions
+    var kwBeforeRe = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield";
+
+    var deprecated = lang.arrayToMap(
+        ("__parent__|__count__|escape|unescape|with|__proto__").split("|")
+    );
+
+    var definitions = lang.arrayToMap(("const|let|var|function").split("|"));
+
+    var buildinConstants = lang.arrayToMap(
+        ("null|Infinity|NaN|undefined").split("|")
+    );
+
+    var futureReserved = lang.arrayToMap(
+        ("class|enum|extends|super|export|implements|private|" +
+        "public|interface|package|protected|static").split("|")
+    );
+
+    // TODO: Unicode escape sequences
+    var identifierRe = "[" + unicode.packages.L + "\\$_][" 
+        + unicode.packages.L
+        + unicode.packages.Mn + unicode.packages.Mc
+        + unicode.packages.Nd
+        + unicode.packages.Pc + "\\$_]*\\b";
+    
+    var escapedRe = "\\\\(?:x[0-9a-fA-F]{2}|" + // hex
+        "u[0-9a-fA-F]{4}|" + // unicode
+        "[0-2][0-7]{0,2}|" + // oct
+        "3[0-6][0-7]?|" + // oct
+        "37[0-7]?|" + // oct 
+        "[4-7][0-7]?|" + //oct
+        ".)";
+        
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            },
+            new DocCommentHighlightRules().getStartRule("doc-start"),
+            {
+                token : "comment", // multi line comment
+                merge : true,
+                regex : "\\/\\*",
+                next : "comment"
+            }, {
+                token : "string",
+                regex : "'",
+                next  : "qstring"
+            }, {
+                token : "string",
+                regex : '"',
+                next  : "qqstring"
+            }, {
+                token : "constant.numeric", // hex
+                regex : "0[xX][0-9a-fA-F]+\\b"
+            }, {
+                token : "constant.numeric", // float
+                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+            }, {
+                token : ["storage.type", "text", "entity.name.function", "text", "paren.lparen", "variable.parameter", "paren.rparen"],
+                regex : "(function)(\\s+)(" + identifierRe + ")(\\s*)(\\()(.*?)(\\))"
+            }, {
+                token : "constant.language.boolean",
+                regex : "(?:true|false)\\b"
+            }, {
+                token : "keyword",
+                regex : "(?:" + kwBeforeRe + ")\\b",
+                next : "regex_allowed"
+            }, {
+                token : "support.function",
+                regex : "\\b(?:s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\\b(?=\\()"     
+            }, {
+                token : "support.function.dom",
+                regex : "\\b(?:s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName)|ById)|Attribute(?:Node)?)|blur)\\b(?=\\()"                
+            }, {
+                token : "support.function.constant",
+                regex : "\\b(?:s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\\b"                
+            }, {
+                token : ["punctuation.operator", "support.function.firebug"],
+                regex : "(\\.)(warn|info|log|error|time|timeEnd|assert)\\b"
+                
+            }, {
+                token : function(value) {
+                    if (globals.hasOwnProperty(value))
+                        return "variable.language";
+                    else if (deprecated.hasOwnProperty(value))
+                        return "invalid.deprecated";
+                    else if (definitions.hasOwnProperty(value))
+                        return "storage.type";
+                    else if (keywords.hasOwnProperty(value))
+                        return "keyword";
+                    else if (buildinConstants.hasOwnProperty(value))
+                        return "constant.language";
+                    else if (futureReserved.hasOwnProperty(value))
+                        return "invalid.illegal";
+                    else if (value == "debugger")
+                        return "invalid.deprecated";
+                    else
+                        return "identifier";
+                },
+                regex : identifierRe
+            }, {
+                token : "keyword.operator",
+                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|instanceof|new|delete|typeof|void)",
+                next  : "regex_allowed"
+            }, {
+                token : "punctuation.operator",
+                regex : "\\?|\\:|\\,|\\;|\\.",
+                next  : "regex_allowed"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]",
+                next  : "regex_allowed"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "keyword.operator",
+                regex : "\\/=?",
+                next  : "regex_allowed"
+            }, {
+                token: "comment",
+                regex: "^#!.*$" 
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ],
+        // regular expressions are only allowed after certain tokens. This
+        // makes sure we don't mix up regexps with the divison operator
+        "regex_allowed": [
+            {
+                token : "comment", // multi line comment
+                merge : true,
+                regex : "\\/\\*",
+                next : "comment_regex_allowed"
+            }, {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            }, {
+                token: "string.regexp",
+                regex: "\\/",
+                next: "regex",
+                merge: true
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }, {
+                // immediately return to the start mode without matching
+                // anything
+                token: "empty", 
+                regex: "",
+                next: "start"
+            }
+        ],
+        "regex": [
+            {
+                token: "regexp.keyword.operator",
+                regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)",
+                next: "regex"
+            }, {
+				// flag
+                token: "string.regexp", 
+                regex: "/\\w*",
+                next: "start",
+                merge: true 
+            }, {
+                token: "string.regexp",
+                regex: "[^\\\\/\\[]+",
+                next: "regex",
+                merge: true
+            }, {
+                token: "string.regexp.charachterclass",
+                regex: "\\[",
+                next: "regex_character_class",
+                merge: true
+            }, {
+                token: "empty", 
+                regex: "",
+                next: "start" 
+            }
+        ],
+        "regex_character_class": [
+            {
+                token: "regexp.keyword.operator",
+                regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)",
+                next: "regex_character_class"
+            }, {
+                token: "string.regexp.charachterclass",
+                regex: "]",
+                next: "regex",
+                merge: true
+            }, {
+                token: "string.regexp.charachterclass",
+                regex: "[^\\\\\\]]+",
+                next: "regex_character_class",
+                merge: true
+            }, {
+                token: "empty", 
+                regex: "",
+                next: "start" 
+            }
+        ],
+        "comment_regex_allowed" : [
+            {
+                token : "comment", // closing comment
+                regex : ".*?\\*\\/",
+                merge : true,
+                next : "regex_allowed"
+            }, {
+                token : "comment", // comment spanning whole line
+                merge : true,
+                regex : ".+"
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment", // closing comment
+                regex : ".*?\\*\\/",
+                merge : true,
+                next : "start"
+            }, {
+                token : "comment", // comment spanning whole line
+                merge : true,
+                regex : ".+"
+            }
+        ],
+        "qqstring" : [
+            {
+                token : "constant.language.escape",
+                regex : escapedRe
+            }, {
+                token : "string",
+                regex : '[^"\\\\]+'
+            }, {
+                token : "string",
+                regex : '"',
+                next  : "start"
+            }
+        ],
+        "qstring" : [
+            {
+                token : "constant.language.escape",
+                regex : escapedRe
+            }, {
+                token : "string",
+                regex : "[^'\\\\]+"
+            }, {
+                token : "string",
+                regex : "'",
+                next  : "start"
+            }
+        ]
+    };
+    
+    this.embedRules(DocCommentHighlightRules, "doc-",
+        [ new DocCommentHighlightRules().getEndRule("start") ]);
+};
+
+oop.inherits(JavaScriptHighlightRules, TextHighlightRules);
+
+exports.JavaScriptHighlightRules = JavaScriptHighlightRules;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/doc_comment_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var DocCommentHighlightRules = function() {
+
+    this.$rules = {
+        "start" : [ {
+            token : "comment.doc.tag",
+            regex : "@[\\w\\d_]+" // TODO: fix email addresses
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "\\s+"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "TODO"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "[^@\\*]+"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "."
+        }]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+(function() {
+
+    this.getStartRule = function(start) {
+        return {
+            token : "comment.doc", // doc comment
+            merge : true,
+            regex : "\\/\\*(?=\\*)",
+            next  : start
+        };
+    };
+    
+    this.getEndRule = function (start) {
+        return {
+            token : "comment.doc", // closing comment
+            merge : true,
+            regex : "\\*\\/",
+            next  : start
+        };
+    };
+
+}).call(DocCommentHighlightRules.prototype);
+
+exports.DocCommentHighlightRules = DocCommentHighlightRules;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/matching_brace_outdent', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../range").Range;
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        var match = line.match(/^(\s+)/);
+        if (match) {
+            return match[1];
+        }
+
+        return "";
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+});
+/* vim:ts=4:sts=4:sw=4:
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Chris Spencer <chris.ag.spencer AT googlemail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/behaviour/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/behaviour'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Behaviour = require('../behaviour').Behaviour;
+
+var CstyleBehaviour = function () {
+
+    this.add("braces", "insertion", function (state, action, editor, session, text) {
+        if (text == '{') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '{' + selected + '}',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '{}',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == '}') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var matching = session.$findOpeningBracket('}', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        } else if (text == "\n") {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var openBracePos = session.findMatchingBracket({row: cursor.row, column: cursor.column + 1});
+                if (!openBracePos)
+                     return null;
+
+                var indent = this.getNextLineIndent(state, line.substring(0, line.length - 1), session.getTabString());
+                var next_indent = this.$getIndent(session.doc.getLine(openBracePos.row));
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent,
+                    selection: [1, indent.length, 1, indent.length]
+                }
+            }
+        }
+    });
+
+    this.add("braces", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '{') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.end.column, range.end.column + 1);
+            if (rightChar == '}') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("parens", "insertion", function (state, action, editor, session, text) {
+        if (text == '(') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '(' + selected + ')',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '()',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == ')') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == ')') {
+                var matching = session.$findOpeningBracket(')', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("parens", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '(') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == ')') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("string_dquotes", "insertion", function (state, action, editor, session, text) {
+        if (text == '"') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '"' + selected + '"',
+                    selection: false
+                }
+            } else {
+                var cursor = editor.getCursorPosition();
+                var line = session.doc.getLine(cursor.row);
+                var leftChar = line.substring(cursor.column-1, cursor.column);
+
+                // We're escaped.
+                if (leftChar == '\\') {
+                    return null;
+                }
+
+                // Find what token we're inside.
+                var tokens = session.getTokens(selection.start.row, selection.start.row)[0].tokens;
+                var col = 0, token;
+                var quotepos = -1; // Track whether we're inside an open quote.
+
+                for (var x = 0; x < tokens.length; x++) {
+                    token = tokens[x];
+                    if (token.type == "string") {
+                      quotepos = -1;
+                    } else if (quotepos < 0) {
+                      quotepos = token.value.indexOf('"');
+                    }
+                    if ((token.value.length + col) > selection.start.column) {
+                        break;
+                    }
+                    col += tokens[x].value.length;
+                }
+
+                // Try and be smart about when we auto insert.
+                if (!token || (quotepos < 0 && token.type !== "comment" && (token.type !== "string" || ((selection.start.column !== token.value.length+col-1) && token.value.lastIndexOf('"') === token.value.length-1)))) {
+                    return {
+                        text: '""',
+                        selection: [1,1]
+                    }
+                } else if (token && token.type === "string") {
+                    // Ignore input and move right one if we're typing over the closing quote.
+                    var rightChar = line.substring(cursor.column, cursor.column + 1);
+                    if (rightChar == '"') {
+                        return {
+                            text: '',
+                            selection: [1, 1]
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("string_dquotes", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '"') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == '"') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+}
+oop.inherits(CstyleBehaviour, Behaviour);
+
+exports.CstyleBehaviour = CstyleBehaviour;
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/range', 'ace/mode/folding/fold_mode'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Range = require("../../range").Range;
+var BaseFoldMode = require("./fold_mode").FoldMode;
+
+var FoldMode = exports.FoldMode = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.foldingStartMarker = /(\{|\[)[^\}\]]*$|^\s*(\/\*)/;
+    this.foldingStopMarker = /^[^\[\{]*(\}|\])|^[\s\*]*(\*\/)/;
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var match = line.match(this.foldingStartMarker);
+        if (match) {
+            var i = match.index;
+
+            if (match[1])
+                return this.openingBracketBlock(session, match[1], row, i);
+
+            var range = session.getCommentFoldRange(row, i + match[0].length);
+            range.end.column -= 2;
+            return range;
+        }
+
+        if (foldStyle !== "markbeginend")
+            return;
+            
+        var match = line.match(this.foldingStopMarker);
+        if (match) {
+            var i = match.index + match[0].length;
+
+            if (match[2]) {
+                var range = session.getCommentFoldRange(row, i);
+                range.end.column -= 2;
+                return range;
+            }
+
+            var end = {row: row, column: i};
+            var start = session.$findOpeningBracket(match[1], end);
+            
+            if (!start)
+                return;
+
+            start.column++;
+            end.column--;
+
+            return  Range.fromPoints(start, end);
+        }
+    };
+    
+}).call(FoldMode.prototype);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/fold_mode', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../../range").Range;
+
+var FoldMode = exports.FoldMode = function() {};
+
+(function() {
+
+    this.foldingStartMarker = null;
+    this.foldingStopMarker = null;
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        if (this.foldingStartMarker.test(line))
+            return "start";
+        if (foldStyle == "markbeginend"
+                && this.foldingStopMarker
+                && this.foldingStopMarker.test(line))
+            return "end";
+        return "";
+    };
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        return null;
+    };
+
+    this.indentationBlock = function(session, row, column) {
+        var re = /^\s*/;
+        var startRow = row;
+        var endRow = row;
+        var line = session.getLine(row);
+        var startColumn = column || line.length;
+        var startLevel = line.match(re)[0].length;
+        var maxRow = session.getLength()
+        
+        while (++row < maxRow) {
+            line = session.getLine(row);
+            var level = line.match(re)[0].length;
+
+            if (level == line.length)
+                continue;
+
+            if (level <= startLevel)
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+    this.openingBracketBlock = function(session, bracket, row, column) {
+        var start = {row: row, column: column + 1};
+        var end = session.$findClosingBracket(bracket, start);
+        if (!end)
+            return;
+
+        var fw = session.foldWidgets[end.row];
+        if (fw == null)
+            fw = this.getFoldWidget(session, end.row);
+
+        if (fw == "start") {
+            end.row --;
+            end.column = session.getLine(end.row).length;
+        }
+        return Range.fromPoints(start, end);
+    };
+
+}).call(FoldMode.prototype);
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/css', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/css_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/worker/worker_client', 'ace/mode/folding/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
+var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+var WorkerClient = require("../worker/worker_client").WorkerClient;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+
+var Mode = function() {
+    this.$tokenizer = new Tokenizer(new CssHighlightRules().getRules(), "i");
+    this.$outdent = new MatchingBraceOutdent();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.foldingRules = "cStyle";
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        // ignore braces in comments
+        var tokens = this.$tokenizer.getLineTokens(line, state).tokens;
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        var match = line.match(/^.*\{\s*$/);
+        if (match) {
+            indent += tab;
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+    
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "worker-css.js", "ace/mode/css_worker", "Worker");
+        worker.attachToDocument(session.getDocument());
+        
+        worker.on("csslint", function(e) {
+            var errors = [];
+            e.data.forEach(function(message) {
+                errors.push({
+                    row: message.line - 1,
+                    column: message.col - 1,
+                    text: message.message,
+                    type: message.type,
+                    lint: message
+                });
+            });
+            
+            session.setAnnotations(errors);
+        });
+        return worker;
+    };
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/css_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var lang = require("../lib/lang");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var CssHighlightRules = function() {
+
+    var properties = lang.arrayToMap(
+        ("-moz-appearance|-moz-box-sizing|-webkit-box-sizing|-moz-outline-radius|-moz-transform|-webkit-transform|" +
+        "appearance|azimuth|background-attachment|background-color|background-image|" +
+        "background-origin|background-position|background-repeat|background|border-bottom-color|" +
+        "border-bottom-style|border-bottom-width|border-bottom|border-collapse|" +
+        "border-color|border-left-color|border-left-style|border-left-width|" +
+        "border-left|border-right-color|border-right-style|border-right-width|" +
+        "border-right|border-spacing|border-style|border-top-color|" +
+        "border-top-style|border-top-width|border-top|border-width|border|" +
+        "bottom|box-sizing|caption-side|clear|clip|color|content|counter-increment|" +
+        "counter-reset|cue-after|cue-before|cue|cursor|direction|display|" +
+        "elevation|empty-cells|float|font-family|font-size-adjust|font-size|" +
+        "font-stretch|font-style|font-variant|font-weight|font|height|left|" +
+        "letter-spacing|line-height|list-style-image|list-style-position|" +
+        "list-style-type|list-style|margin-bottom|margin-left|margin-right|" +
+        "margin-top|marker-offset|margin|marks|max-height|max-width|min-height|" +
+        "min-width|-moz-border-radius|opacity|orphans|outline-color|outline-offset|outline-radius|" +
+        "outline-style|outline-width|outline|overflow|overflow-x|overflow-y|padding-bottom|" +
+        "padding-left|padding-right|padding-top|padding|page-break-after|" +
+        "page-break-before|page-break-inside|page|pause-after|pause-before|" +
+        "pause|pitch-range|pitch|play-during|pointer-events|position|quotes|resize|richness|right|" +
+        "size|speak-header|speak-numeral|speak-punctuation|speech-rate|speak|" +
+        "stress|table-layout|text-align|text-decoration|text-indent|" +
+        "text-shadow|text-transform|top|transform|unicode-bidi|vertical-align|" +
+        "visibility|voice-family|volume|white-space|widows|width|word-spacing|" +
+        "z-index").split("|")
+    );
+
+    var functions = lang.arrayToMap(
+        ("rgb|rgba|url|attr|counter|counters").split("|")
+    );
+
+    var constants = lang.arrayToMap(
+        ("absolute|all-scroll|always|armenian|auto|baseline|below|bidi-override|" +
+        "block|bold|bolder|border-box|both|bottom|break-all|break-word|capitalize|center|" +
+        "char|circle|cjk-ideographic|col-resize|collapse|content-box|crosshair|dashed|" +
+        "decimal-leading-zero|decimal|default|disabled|disc|" +
+        "distribute-all-lines|distribute-letter|distribute-space|" +
+        "distribute|dotted|double|e-resize|ellipsis|fixed|georgian|groove|" +
+        "hand|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|" +
+        "ideograph-alpha|ideograph-numeric|ideograph-parenthesis|" +
+        "ideograph-space|inactive|inherit|inline-block|inline|inset|inside|" +
+        "inter-ideograph|inter-word|italic|justify|katakana-iroha|katakana|" +
+        "keep-all|left|lighter|line-edge|line-through|line|list-item|loose|" +
+        "lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|" +
+        "medium|middle|move|n-resize|ne-resize|newspaper|no-drop|no-repeat|" +
+        "nw-resize|none|normal|not-allowed|nowrap|oblique|outset|outside|" +
+        "overline|pointer|progress|relative|repeat-x|repeat-y|repeat|right|" +
+        "ridge|row-resize|rtl|s-resize|scroll|se-resize|separate|small-caps|" +
+        "solid|square|static|strict|super|sw-resize|table-footer-group|" +
+        "table-header-group|tb-rl|text-bottom|text-top|text|thick|thin|top|" +
+        "transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|" +
+        "vertical-ideographic|vertical-text|visible|w-resize|wait|whitespace|" +
+        "zero").split("|")
+    );
+
+    var colors = lang.arrayToMap(
+        ("aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|" +
+        "purple|red|silver|teal|white|yellow").split("|")
+    );
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    var numRe = "\\-?(?:(?:[0-9]+)|(?:[0-9]*\\.[0-9]+))";
+
+    var base_ruleset = [
+        {
+            token : "comment", // multi line comment
+            merge : true,
+            regex : "\\/\\*",
+            next : "ruleset_comment"
+        },{
+            token : "string", // single line
+            regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+        }, {
+            token : "string", // single line
+            regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+        }, {
+            token : "constant.numeric",
+            regex : numRe + "(?:em|ex|px|cm|mm|in|pt|pc|deg|rad|grad|ms|s|hz|khz|%)"
+        }, {
+            token : "constant.numeric",  // hex6 color
+            regex : "#[a-f0-9]{6}"
+        }, {
+            token : "constant.numeric", // hex3 color
+            regex : "#[a-f0-9]{3}"
+        }, {
+            token : function(value) {
+                if (properties.hasOwnProperty(value.toLowerCase())) {
+                    return "support.type";
+                }
+                else if (functions.hasOwnProperty(value.toLowerCase())) {
+                    return "support.function";
+                }
+                else if (constants.hasOwnProperty(value.toLowerCase())) {
+                    return "support.constant";
+                }
+                else if (colors.hasOwnProperty(value.toLowerCase())) {
+                    return "support.constant.color";
+                }
+                else {
+                    return "text";
+                }
+            },
+            regex : "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*"
+        }
+      ];
+
+    var ruleset = lang.copyArray(base_ruleset);
+    ruleset.unshift({
+        token : "paren.rparen",
+        regex : "\\}",
+        next:   "start"
+    });
+
+    var media_ruleset = lang.copyArray( base_ruleset );
+    media_ruleset.unshift({
+        token : "paren.rparen",
+        regex : "\\}",
+        next:   "media"
+    });
+
+    var base_comment = [{
+          token : "comment", // comment spanning whole line
+          merge : true,
+          regex : ".+"
+    }];
+
+    var comment = lang.copyArray(base_comment);
+    comment.unshift({
+          token : "comment", // closing comment
+          regex : ".*?\\*\\/",
+          next : "start"
+    });
+
+    var media_comment = lang.copyArray(base_comment);
+    media_comment.unshift({
+          token : "comment", // closing comment
+          regex : ".*?\\*\\/",
+          next : "media"
+    });
+
+    var ruleset_comment = lang.copyArray(base_comment);
+    ruleset_comment.unshift({
+          token : "comment", // closing comment
+          regex : ".*?\\*\\/",
+          next : "ruleset"
+    });
+
+    this.$rules = {
+        "start" : [{
+            token : "comment", // multi line comment
+            merge : true,
+            regex : "\\/\\*",
+            next : "comment"
+        }, {
+            token: "paren.lparen",
+            regex: "\\{",
+            next:  "ruleset"
+        }, {
+            token: "string",
+            regex: "@.*?{",
+            next:  "media"
+        },{
+            token: "keyword",
+            regex: "#[a-z0-9-_]+"
+        },{
+            token: "variable",
+            regex: "\\.[a-z0-9-_]+"
+        },{
+            token: "string",
+            regex: ":[a-z0-9-_]+"
+        },{
+            token: "constant",
+            regex: "[a-z0-9-_]+"
+        }],
+
+        "media" : [ {
+            token : "comment", // multi line comment
+            merge : true,
+            regex : "\\/\\*",
+            next : "media_comment"
+        }, {
+            token: "paren.lparen",
+            regex: "\\{",
+            next:  "media_ruleset"
+        },{
+            token: "string",
+            regex: "\\}",
+            next:  "start"
+        },{
+            token: "keyword",
+            regex: "#[a-z0-9-_]+"
+        },{
+            token: "variable",
+            regex: "\\.[a-z0-9-_]+"
+        },{
+            token: "string",
+            regex: ":[a-z0-9-_]+"
+        },{
+            token: "constant",
+            regex: "[a-z0-9-_]+"
+        }],
+
+        "comment" : comment,
+
+        "ruleset" : ruleset,
+        "ruleset_comment" : ruleset_comment,
+
+        "media_ruleset" : media_ruleset,
+        "media_comment" : media_comment
+    };
+};
+
+oop.inherits(CssHighlightRules, TextHighlightRules);
+
+exports.CssHighlightRules = CssHighlightRules;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/html_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/css_highlight_rules', 'ace/mode/javascript_highlight_rules', 'ace/mode/xml_util', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
+var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
+var xmlUtil = require("./xml_util");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var HtmlHighlightRules = function() {
+
+    // regexp must not have capturing parentheses
+    // regexps are ordered -> the first match is used
+    this.$rules = {
+        start : [{
+            token : "text",
+            merge : true,
+            regex : "<\\!\\[CDATA\\[",
+            next : "cdata"
+        }, {
+            token : "xml_pe",
+            regex : "<\\?.*?\\?>"
+        }, {
+            token : "comment",
+            merge : true,
+            regex : "<\\!--",
+            next : "comment"
+        }, {
+            token : "meta.tag",
+            regex : "<(?=\s*script\\b)",
+            next : "script"
+        }, {
+            token : "meta.tag",
+            regex : "<(?=\s*style\\b)",
+            next : "style"
+        }, {
+            token : "meta.tag", // opening tag
+            regex : "<\\/?",
+            next : "tag"
+        }, {
+            token : "text",
+            regex : "\\s+"
+        }, {
+            token : "text",
+            regex : "[^<]+"
+        } ],
+    
+        cdata : [ {
+            token : "text",
+            regex : "\\]\\]>",
+            next : "start"
+        }, {
+            token : "text",
+            merge : true,
+            regex : "\\s+"
+        }, {
+            token : "text",
+            merge : true,
+            regex : ".+"
+        } ],
+
+        comment : [ {
+            token : "comment",
+            regex : ".*?-->",
+            next : "start"
+        }, {
+            token : "comment",
+            merge : true,
+            regex : ".+"
+        } ]
+    };
+    
+    xmlUtil.tag(this.$rules, "tag", "start");
+    xmlUtil.tag(this.$rules, "style", "css-start");
+    xmlUtil.tag(this.$rules, "script", "js-start");
+    
+    this.embedRules(JavaScriptHighlightRules, "js-", [{
+        token: "comment",
+        regex: "\\/\\/.*(?=<\\/script>)",
+        next: "tag"
+    }, {
+        token: "meta.tag",
+        regex: "<\\/(?=script)",
+        next: "tag"
+    }]);
+    
+    this.embedRules(CssHighlightRules, "css-", [{
+        token: "meta.tag",
+        regex: "<\\/(?=style)",
+        next: "tag"
+    }]);
+};
+
+oop.inherits(HtmlHighlightRules, TextHighlightRules);
+
+exports.HtmlHighlightRules = HtmlHighlightRules;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/xml_util', ['require', 'exports', 'module' , 'ace/lib/lang'], function(require, exports, module) {
+"use strict";
+
+var lang = require("../lib/lang");
+
+var formTags = lang.arrayToMap(
+    ("button|form|input|label|select|textarea").split("|")
+);
+
+var tableTags = lang.arrayToMap(
+    ("table|tbody|td|tfoot|th|tr").split("|")
+);
+
+function string(state) {
+    return [{
+        token : "string",
+        regex : '".*?"'
+    }, {
+        token : "string", // multi line string start
+        merge : true,
+        regex : '["].*',
+        next : state + "_qqstring"
+    }, {
+        token : "string",
+        regex : "'.*?'"
+    }, {
+        token : "string", // multi line string start
+        merge : true,
+        regex : "['].*",
+        next : state + "_qstring"
+    }];
+}
+
+function multiLineString(quote, state) {
+    return [{
+        token : "string",
+        merge : true,
+        regex : ".*?" + quote,
+        next : state
+    }, {
+        token : "string",
+        merge : true,
+        regex : '.+'
+    }];
+}
+
+exports.tag = function(states, name, nextState) {
+    states[name] = [{
+        token : "text",
+        regex : "\\s+"
+    }, {
+        //token : "meta.tag",
+        
+    token : function(value) {
+            if ( value==='a' ) {
+                return "meta.tag.anchor";
+            }
+            else if ( value==='img' ) {
+                return "meta.tag.image";
+            }
+            else if ( value==='script' ) {
+                return "meta.tag.script";
+            }
+            else if ( value==='style' ) {
+                return "meta.tag.style";
+            }
+            else if (formTags.hasOwnProperty(value.toLowerCase())) {
+                return "meta.tag.form";
+            }
+            else if (tableTags.hasOwnProperty(value.toLowerCase())) {
+                return "meta.tag.table";
+            }
+            else {
+                return "meta.tag";
+            }
+        },        
+        merge : true,
+        regex : "[-_a-zA-Z0-9:!]+",
+        next : name + "_embed_attribute_list" 
+    }, {
+        token: "empty",
+        regex: "",
+        next : name + "_embed_attribute_list"
+    }];
+
+    states[name + "_qstring"] = multiLineString("'", name + "_embed_attribute_list");
+    states[name + "_qqstring"] = multiLineString("\"", name + "_embed_attribute_list");
+    
+    states[name + "_embed_attribute_list"] = [{
+        token : "meta.tag",
+        merge : true,
+        regex : "\/?>",
+        next : nextState
+    }, {
+        token : "keyword.operator",
+        regex : "="
+    }, {
+        token : "entity.other.attribute-name",
+        regex : "[-_a-zA-Z0-9:]+"
+    }, {
+        token : "constant.numeric", // float
+        regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+    }, {
+        token : "text",
+        regex : "\\s+"
+    }].concat(string(name));
+};
+
+});
+/* vim:ts=4:sts=4:sw=4:
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Chris Spencer <chris.ag.spencer AT googlemail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/behaviour/xml', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/behaviour', 'ace/mode/behaviour/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Behaviour = require("../behaviour").Behaviour;
+var CstyleBehaviour = require("./cstyle").CstyleBehaviour;
+
+var XmlBehaviour = function () {
+    
+    this.inherit(CstyleBehaviour, ["string_dquotes"]); // Get string behaviour
+    
+    this.add("brackets", "insertion", function (state, action, editor, session, text) {
+        if (text == '<') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return false;
+            } else {
+                return {
+                    text: '<>',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == '>') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '>') { // need some kind of matching check here
+                return {
+                    text: '',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == "\n") {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChars = line.substring(cursor.column, cursor.column + 2);
+            if (rightChars == '</') {
+                var indent = this.$getIndent(session.doc.getLine(cursor.row)) + session.getTabString();
+                var next_indent = this.$getIndent(session.doc.getLine(cursor.row));
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent,
+                    selection: [1, indent.length, 1, indent.length]
+                }
+            }
+        }
+    });
+    
+}
+oop.inherits(XmlBehaviour, Behaviour);
+
+exports.XmlBehaviour = XmlBehaviour;
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/html', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/folding/mixed', 'ace/mode/folding/xml', 'ace/mode/folding/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var MixedFoldMode = require("./mixed").FoldMode;
+var XmlFoldMode = require("./xml").FoldMode;
+var CStyleFoldMode = require("./cstyle").FoldMode;
+
+var FoldMode = exports.FoldMode = function() {
+    MixedFoldMode.call(this, new XmlFoldMode({
+        // void elements
+        "area": 1,
+        "base": 1,
+        "br": 1,
+        "col": 1,
+        "command": 1,
+        "embed": 1,
+        "hr": 1,
+        "img": 1,
+        "input": 1,
+        "keygen": 1,
+        "link": 1,
+        "meta": 1,
+        "param": 1,
+        "source": 1,
+        "track": 1,
+        "wbr": 1,
+        
+        // optional tags 
+        "li": 1,
+        "dt": 1,
+        "dd": 1,
+        "p": 1,
+        "rt": 1,
+        "rp": 1,
+        "optgroup": 1,
+        "option": 1,
+        "colgroup": 1,
+        "td": 1,
+        "th": 1
+    }), {
+        "js-": new CStyleFoldMode(),
+        "css-": new CStyleFoldMode()
+    });
+};
+
+oop.inherits(FoldMode, MixedFoldMode);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/mixed', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/folding/fold_mode'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var BaseFoldMode = require("./fold_mode").FoldMode;
+
+var FoldMode = exports.FoldMode = function(defaultMode, subModes) {
+    this.defaultMode = defaultMode;
+    this.subModes = subModes;
+};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+
+    this.$getMode = function(state) {
+        for (var key in this.subModes) {
+            if (state.indexOf(key) === 0)
+                return this.subModes[key];
+        }
+        return null;
+    };
+    
+    this.$tryMode = function(state, session, foldStyle, row) {
+        var mode = this.$getMode(state);
+        return (mode ? mode.getFoldWidget(session, foldStyle, row) : "");
+    };
+
+    this.getFoldWidget = function(session, foldStyle, row) {
+        return (
+            this.$tryMode(session.getState(row-1), session, foldStyle, row) ||
+            this.$tryMode(session.getState(row), session, foldStyle, row) ||
+            this.defaultMode.getFoldWidget(session, foldStyle, row)
+        );
+    };
+
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var mode = this.$getMode(session.getState(row-1));
+        
+        if (!mode || !mode.getFoldWidget(session, foldStyle, row))
+            mode = this.$getMode(session.getState(row));
+        
+        if (!mode || !mode.getFoldWidget(session, foldStyle, row))
+            mode = this.defaultMode;
+        
+        return mode.getFoldWidgetRange(session, foldStyle, row);
+    };
+
+}).call(FoldMode.prototype);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/xml', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/range', 'ace/mode/folding/fold_mode', 'ace/token_iterator'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var lang = require("../../lib/lang");
+var Range = require("../../range").Range;
+var BaseFoldMode = require("./fold_mode").FoldMode;
+var TokenIterator = require("../../token_iterator").TokenIterator;
+
+var FoldMode = exports.FoldMode = function(voidElements) {
+    BaseFoldMode.call(this);
+    this.voidElements = voidElements || {};
+};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var tag = this._getFirstTagInLine(session, row);
+
+        if (tag.closing)
+            return foldStyle == "markbeginend" ? "end" : "";
+
+        if (!tag.tagName || this.voidElements[tag.tagName.toLowerCase()])
+            return "";
+
+        if (tag.selfClosing)
+            return "";
+
+        if (tag.value.indexOf("/" + tag.tagName) !== -1)
+            return "";
+
+        return "start";
+    };
+    
+    this._getFirstTagInLine = function(session, row) {
+        var tokens = session.getTokens(row, row)[0].tokens;
+        var value = "";
+        for (var i = 0; i < tokens.length; i++) {
+            var token = tokens[i];
+            if (token.type.indexOf("meta.tag") === 0)
+                value += token.value;
+            else
+                value += lang.stringRepeat(" ", token.value.length);
+        }
+        
+        return this._parseTag(value);
+    };
+
+    this.tagRe = /^(\s*)(<?(\/?)([-_a-zA-Z0-9:!]*)\s*(\/?)>?)/;
+    this._parseTag = function(tag) {
+        
+        var match = this.tagRe.exec(tag);
+        var column = this.tagRe.lastIndex || 0;
+        this.tagRe.lastIndex = 0;
+
+        return {
+            value: tag,
+            match: match ? match[2] : "",
+            closing: match ? !!match[3] : false,
+            selfClosing: match ? !!match[5] || match[2] == "/>" : false,
+            tagName: match ? match[4] : "",
+            column: match[1] ? column + match[1].length : column
+        };
+    };
+    
+    /**
+     * reads a full tag and places the iterator after the tag
+     */
+    this._readTagForward = function(iterator) {
+        var token = iterator.getCurrentToken();
+        if (!token)
+            return null;
+            
+        var value = "";
+        var start;
+        
+        do {
+            if (token.type.indexOf("meta.tag") === 0) {
+                if (!start) {
+                    var start = {
+                        row: iterator.getCurrentTokenRow(),
+                        column: iterator.getCurrentTokenColumn()
+                    };
+                }
+                value += token.value;
+                if (value.indexOf(">") !== -1) {
+                    var tag = this._parseTag(value);
+                    tag.start = start;
+                    tag.end = {
+                        row: iterator.getCurrentTokenRow(),
+                        column: iterator.getCurrentTokenColumn() + token.value.length
+                    };
+                    iterator.stepForward();
+                    return tag;
+                }
+            }
+        } while(token = iterator.stepForward());
+        
+        return null;
+    };
+    
+    this._readTagBackward = function(iterator) {
+        var token = iterator.getCurrentToken();
+        if (!token)
+            return null;
+            
+        var value = "";
+        var end;
+
+        do {
+            if (token.type.indexOf("meta.tag") === 0) {
+                if (!end) {
+                    end = {
+                        row: iterator.getCurrentTokenRow(),
+                        column: iterator.getCurrentTokenColumn() + token.value.length
+                    };
+                }
+                value = token.value + value;
+                if (value.indexOf("<") !== -1) {
+                    var tag = this._parseTag(value);
+                    tag.end = end;
+                    tag.start = {
+                        row: iterator.getCurrentTokenRow(),
+                        column: iterator.getCurrentTokenColumn()
+                    };
+                    iterator.stepBackward();
+                    return tag;
+                }
+            }
+        } while(token = iterator.stepBackward());
+        
+        return null;
+    };
+    
+    this._pop = function(stack, tag) {
+        while (stack.length) {
+            
+            var top = stack[stack.length-1];
+            if (!tag || top.tagName == tag.tagName) {
+                return stack.pop();
+            }
+            else if (this.voidElements[tag.tagName]) {
+                return;
+            }
+            else if (this.voidElements[top.tagName]) {
+                stack.pop();
+                continue;
+            } else {
+                return null;
+            }
+        }
+    };
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var firstTag = this._getFirstTagInLine(session, row);
+        
+        if (!firstTag.match)
+            return null;
+        
+        var isBackward = firstTag.closing || firstTag.selfClosing;
+        var stack = [];
+        var tag;
+        
+        if (!isBackward) {
+            var iterator = new TokenIterator(session, row, firstTag.column);
+            var start = {
+                row: row,
+                column: firstTag.column + firstTag.tagName.length + 2
+            };
+            while (tag = this._readTagForward(iterator)) {
+                if (tag.selfClosing) {
+                    if (!stack.length) {
+                        tag.start.column += tag.tagName.length + 2;
+                        tag.end.column -= 2;
+                        return Range.fromPoints(tag.start, tag.end);
+                    } else
+                        continue;
+                }
+                
+                if (tag.closing) {
+                    this._pop(stack, tag);
+                    if (stack.length == 0)
+                        return Range.fromPoints(start, tag.start);
+                }
+                else {
+                    stack.push(tag)
+                }
+            }
+        }
+        else {
+            var iterator = new TokenIterator(session, row, firstTag.column + firstTag.match.length);
+            var end = {
+                row: row,
+                column: firstTag.column
+            };
+            
+            while (tag = this._readTagBackward(iterator)) {
+                if (tag.selfClosing) {
+                    if (!stack.length) {
+                        tag.start.column += tag.tagName.length + 2;
+                        tag.end.column -= 2;
+                        return Range.fromPoints(tag.start, tag.end);
+                    } else
+                        continue;
+                }
+                
+                if (!tag.closing) {
+                    this._pop(stack, tag);
+                    if (stack.length == 0) {
+                        tag.start.column += tag.tagName.length + 2;
+                        return Range.fromPoints(tag.start, end);
+                    }
+                }
+                else {
+                    stack.push(tag)
+                }
+            }
+        }
+        
+    };
+
+}).call(FoldMode.prototype);
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/javascript', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/javascript_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range', 'ace/worker/worker_client', 'ace/mode/behaviour/cstyle', 'ace/mode/folding/cstyle'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
+var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+var Range = require("../range").Range;
+var WorkerClient = require("../worker/worker_client").WorkerClient;
+var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+
+var Mode = function() {
+    this.$tokenizer = new Tokenizer(new JavaScriptHighlightRules().getRules());
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CstyleBehaviour();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+
+    this.toggleCommentLines = function(state, doc, startRow, endRow) {
+        var outdent = true;
+        var re = /^(\s*)\/\//;
+
+        for (var i=startRow; i<= endRow; i++) {
+            if (!re.test(doc.getLine(i))) {
+                outdent = false;
+                break;
+            }
+        }
+
+        if (outdent) {
+            var deleteRange = new Range(0, 0, 0, 0);
+            for (var i=startRow; i<= endRow; i++)
+            {
+                var line = doc.getLine(i);
+                var m = line.match(re);
+                deleteRange.start.row = i;
+                deleteRange.end.row = i;
+                deleteRange.end.column = m[0].length;
+                doc.replace(deleteRange, m[1]);
+            }
+        }
+        else {
+            doc.indentRows(startRow, endRow, "//");
+        }
+    };
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.$tokenizer.getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+        
+        if (state == "start" || state == "regex_allowed") {
+            var match = line.match(/^.*(?:\bcase\b.*\:|[\{\(\[])\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        } else if (state == "doc-start") {
+            if (endState == "start" || state == "regex_allowed") {
+                return "";
+            }
+            var match = line.match(/^\s*(\/?)\*/);
+            if (match) {
+                if (match[1]) {
+                    indent += " ";
+                }
+                indent += "* ";
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+    
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "worker-javascript.js", "ace/mode/javascript_worker", "JavaScriptWorker");
+        worker.attachToDocument(session.getDocument());
+            
+        worker.on("jslint", function(results) {
+            var errors = [];
+            for (var i=0; i<results.data.length; i++) {
+                var error = results.data[i];
+                if (error)
+                    errors.push({
+                        row: error.line-1,
+                        column: error.character-1,
+                        text: error.reason,
+                        type: "warning",
+                        lint: error
+                    });
+            }
+            session.setAnnotations(errors);
+        });
+        
+        worker.on("narcissus", function(e) {
+            session.setAnnotations([e.data]);
+        });
+        
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+        
+        return worker;
+    };
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *      Mihai Sucan <mihai DOT sucan AT gmail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/javascript_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/unicode', 'ace/mode/doc_comment_highlight_rules', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var lang = require("../lib/lang");
+var unicode = require("../unicode");
+var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var JavaScriptHighlightRules = function() {
+
+    // see: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects
+    var globals = lang.arrayToMap(
+      // Constructors
+        ("Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|" +
+      // E4X
+         "Namespace|QName|XML|XMLList|" +
+         "ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|" +
+         "Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|" +
+      // Errors
+        "Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|" +
+        "SyntaxError|TypeError|URIError|" +
+      //  Non-constructor functions
+        "decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|" +
+        "isNaN|parseFloat|parseInt|" +
+      // Other
+        "JSON|Math|" +
+      // Pseudo
+        "this|arguments|prototype|window|document"
+      ).split("|")
+    );
+
+    var keywords = lang.arrayToMap(
+        ("break|case|catch|continue|default|delete|do|else|finally|for|function|" +
+        "if|in|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|" +
+        "const|yield|import|get|set").split("|")
+    );
+
+    // keywords which can be followed by regular expressions
+    var kwBeforeRe = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield";
+
+    var deprecated = lang.arrayToMap(
+        ("__parent__|__count__|escape|unescape|with|__proto__").split("|")
+    );
+
+    var definitions = lang.arrayToMap(("const|let|var|function").split("|"));
+
+    var buildinConstants = lang.arrayToMap(
+        ("null|Infinity|NaN|undefined").split("|")
+    );
+
+    var futureReserved = lang.arrayToMap(
+        ("class|enum|extends|super|export|implements|private|" +
+        "public|interface|package|protected|static").split("|")
+    );
+
+    // TODO: Unicode escape sequences
+    var identifierRe = "[" + unicode.packages.L + "\\$_][" 
+        + unicode.packages.L
+        + unicode.packages.Mn + unicode.packages.Mc
+        + unicode.packages.Nd
+        + unicode.packages.Pc + "\\$_]*\\b";
+    
+    var escapedRe = "\\\\(?:x[0-9a-fA-F]{2}|" + // hex
+        "u[0-9a-fA-F]{4}|" + // unicode
+        "[0-2][0-7]{0,2}|" + // oct
+        "3[0-6][0-7]?|" + // oct
+        "37[0-7]?|" + // oct 
+        "[4-7][0-7]?|" + //oct
+        ".)";
+        
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            },
+            new DocCommentHighlightRules().getStartRule("doc-start"),
+            {
+                token : "comment", // multi line comment
+                merge : true,
+                regex : "\\/\\*",
+                next : "comment"
+            }, {
+                token : "string",
+                regex : "'",
+                next  : "qstring"
+            }, {
+                token : "string",
+                regex : '"',
+                next  : "qqstring"
+            }, {
+                token : "constant.numeric", // hex
+                regex : "0[xX][0-9a-fA-F]+\\b"
+            }, {
+                token : "constant.numeric", // float
+                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+            }, {
+                token : ["storage.type", "text", "entity.name.function", "text", "paren.lparen", "variable.parameter", "paren.rparen"],
+                regex : "(function)(\\s+)(" + identifierRe + ")(\\s*)(\\()(.*?)(\\))"
+            }, {
+                token : "constant.language.boolean",
+                regex : "(?:true|false)\\b"
+            }, {
+                token : "keyword",
+                regex : "(?:" + kwBeforeRe + ")\\b",
+                next : "regex_allowed"
+            }, {
+                token : "support.function",
+                regex : "\\b(?:s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\\b(?=\\()"     
+            }, {
+                token : "support.function.dom",
+                regex : "\\b(?:s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName)|ById)|Attribute(?:Node)?)|blur)\\b(?=\\()"                
+            }, {
+                token : "support.function.constant",
+                regex : "\\b(?:s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\\b"                
+            }, {
+                token : ["punctuation.operator", "support.function.firebug"],
+                regex : "(\\.)(warn|info|log|error|time|timeEnd|assert)\\b"
+                
+            }, {
+                token : function(value) {
+                    if (globals.hasOwnProperty(value))
+                        return "variable.language";
+                    else if (deprecated.hasOwnProperty(value))
+                        return "invalid.deprecated";
+                    else if (definitions.hasOwnProperty(value))
+                        return "storage.type";
+                    else if (keywords.hasOwnProperty(value))
+                        return "keyword";
+                    else if (buildinConstants.hasOwnProperty(value))
+                        return "constant.language";
+                    else if (futureReserved.hasOwnProperty(value))
+                        return "invalid.illegal";
+                    else if (value == "debugger")
+                        return "invalid.deprecated";
+                    else
+                        return "identifier";
+                },
+                regex : identifierRe
+            }, {
+                token : "keyword.operator",
+                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|instanceof|new|delete|typeof|void)",
+                next  : "regex_allowed"
+            }, {
+                token : "punctuation.operator",
+                regex : "\\?|\\:|\\,|\\;|\\.",
+                next  : "regex_allowed"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]",
+                next  : "regex_allowed"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "keyword.operator",
+                regex : "\\/=?",
+                next  : "regex_allowed"
+            }, {
+                token: "comment",
+                regex: "^#!.*$" 
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ],
+        // regular expressions are only allowed after certain tokens. This
+        // makes sure we don't mix up regexps with the divison operator
+        "regex_allowed": [
+            {
+                token : "comment", // multi line comment
+                merge : true,
+                regex : "\\/\\*",
+                next : "comment_regex_allowed"
+            }, {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            }, {
+                token: "string.regexp",
+                regex: "\\/",
+                next: "regex",
+                merge: true
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }, {
+                // immediately return to the start mode without matching
+                // anything
+                token: "empty", 
+                regex: "",
+                next: "start"
+            }
+        ],
+        "regex": [
+            {
+                token: "regexp.keyword.operator",
+                regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)",
+                next: "regex"
+            }, {
+				// flag
+                token: "string.regexp", 
+                regex: "/\\w*",
+                next: "start",
+                merge: true 
+            }, {
+                token: "string.regexp",
+                regex: "[^\\\\/\\[]+",
+                next: "regex",
+                merge: true
+            }, {
+                token: "string.regexp.charachterclass",
+                regex: "\\[",
+                next: "regex_character_class",
+                merge: true
+            }, {
+                token: "empty", 
+                regex: "",
+                next: "start" 
+            }
+        ],
+        "regex_character_class": [
+            {
+                token: "regexp.keyword.operator",
+                regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)",
+                next: "regex_character_class"
+            }, {
+                token: "string.regexp.charachterclass",
+                regex: "]",
+                next: "regex",
+                merge: true
+            }, {
+                token: "string.regexp.charachterclass",
+                regex: "[^\\\\\\]]+",
+                next: "regex_character_class",
+                merge: true
+            }, {
+                token: "empty", 
+                regex: "",
+                next: "start" 
+            }
+        ],
+        "comment_regex_allowed" : [
+            {
+                token : "comment", // closing comment
+                regex : ".*?\\*\\/",
+                merge : true,
+                next : "regex_allowed"
+            }, {
+                token : "comment", // comment spanning whole line
+                merge : true,
+                regex : ".+"
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment", // closing comment
+                regex : ".*?\\*\\/",
+                merge : true,
+                next : "start"
+            }, {
+                token : "comment", // comment spanning whole line
+                merge : true,
+                regex : ".+"
+            }
+        ],
+        "qqstring" : [
+            {
+                token : "constant.language.escape",
+                regex : escapedRe
+            }, {
+                token : "string",
+                regex : '[^"\\\\]+'
+            }, {
+                token : "string",
+                regex : '"',
+                next  : "start"
+            }
+        ],
+        "qstring" : [
+            {
+                token : "constant.language.escape",
+                regex : escapedRe
+            }, {
+                token : "string",
+                regex : "[^'\\\\]+"
+            }, {
+                token : "string",
+                regex : "'",
+                next  : "start"
+            }
+        ]
+    };
+    
+    this.embedRules(DocCommentHighlightRules, "doc-",
+        [ new DocCommentHighlightRules().getEndRule("start") ]);
+};
+
+oop.inherits(JavaScriptHighlightRules, TextHighlightRules);
+
+exports.JavaScriptHighlightRules = JavaScriptHighlightRules;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/doc_comment_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var DocCommentHighlightRules = function() {
+
+    this.$rules = {
+        "start" : [ {
+            token : "comment.doc.tag",
+            regex : "@[\\w\\d_]+" // TODO: fix email addresses
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "\\s+"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "TODO"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "[^@\\*]+"
+        }, {
+            token : "comment.doc",
+            merge : true,
+            regex : "."
+        }]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+(function() {
+
+    this.getStartRule = function(start) {
+        return {
+            token : "comment.doc", // doc comment
+            merge : true,
+            regex : "\\/\\*(?=\\*)",
+            next  : start
+        };
+    };
+    
+    this.getEndRule = function (start) {
+        return {
+            token : "comment.doc", // closing comment
+            merge : true,
+            regex : "\\*\\/",
+            next  : start
+        };
+    };
+
+}).call(DocCommentHighlightRules.prototype);
+
+exports.DocCommentHighlightRules = DocCommentHighlightRules;
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/matching_brace_outdent', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../range").Range;
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        var match = line.match(/^(\s+)/);
+        if (match) {
+            return match[1];
+        }
+
+        return "";
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+});
+/* vim:ts=4:sts=4:sw=4:
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Chris Spencer <chris.ag.spencer AT googlemail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/behaviour/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/behaviour'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Behaviour = require('../behaviour').Behaviour;
+
+var CstyleBehaviour = function () {
+
+    this.add("braces", "insertion", function (state, action, editor, session, text) {
+        if (text == '{') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '{' + selected + '}',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '{}',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == '}') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var matching = session.$findOpeningBracket('}', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        } else if (text == "\n") {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var openBracePos = session.findMatchingBracket({row: cursor.row, column: cursor.column + 1});
+                if (!openBracePos)
+                     return null;
+
+                var indent = this.getNextLineIndent(state, line.substring(0, line.length - 1), session.getTabString());
+                var next_indent = this.$getIndent(session.doc.getLine(openBracePos.row));
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent,
+                    selection: [1, indent.length, 1, indent.length]
+                }
+            }
+        }
+    });
+
+    this.add("braces", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '{') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.end.column, range.end.column + 1);
+            if (rightChar == '}') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("parens", "insertion", function (state, action, editor, session, text) {
+        if (text == '(') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '(' + selected + ')',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '()',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == ')') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == ')') {
+                var matching = session.$findOpeningBracket(')', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("parens", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '(') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == ')') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("string_dquotes", "insertion", function (state, action, editor, session, text) {
+        if (text == '"') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '"' + selected + '"',
+                    selection: false
+                }
+            } else {
+                var cursor = editor.getCursorPosition();
+                var line = session.doc.getLine(cursor.row);
+                var leftChar = line.substring(cursor.column-1, cursor.column);
+
+                // We're escaped.
+                if (leftChar == '\\') {
+                    return null;
+                }
+
+                // Find what token we're inside.
+                var tokens = session.getTokens(selection.start.row, selection.start.row)[0].tokens;
+                var col = 0, token;
+                var quotepos = -1; // Track whether we're inside an open quote.
+
+                for (var x = 0; x < tokens.length; x++) {
+                    token = tokens[x];
+                    if (token.type == "string") {
+                      quotepos = -1;
+                    } else if (quotepos < 0) {
+                      quotepos = token.value.indexOf('"');
+                    }
+                    if ((token.value.length + col) > selection.start.column) {
+                        break;
+                    }
+                    col += tokens[x].value.length;
+                }
+
+                // Try and be smart about when we auto insert.
+                if (!token || (quotepos < 0 && token.type !== "comment" && (token.type !== "string" || ((selection.start.column !== token.value.length+col-1) && token.value.lastIndexOf('"') === token.value.length-1)))) {
+                    return {
+                        text: '""',
+                        selection: [1,1]
+                    }
+                } else if (token && token.type === "string") {
+                    // Ignore input and move right one if we're typing over the closing quote.
+                    var rightChar = line.substring(cursor.column, cursor.column + 1);
+                    if (rightChar == '"') {
+                        return {
+                            text: '',
+                            selection: [1, 1]
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("string_dquotes", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '"') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == '"') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+}
+oop.inherits(CstyleBehaviour, Behaviour);
+
+exports.CstyleBehaviour = CstyleBehaviour;
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/range', 'ace/mode/folding/fold_mode'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Range = require("../../range").Range;
+var BaseFoldMode = require("./fold_mode").FoldMode;
+
+var FoldMode = exports.FoldMode = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.foldingStartMarker = /(\{|\[)[^\}\]]*$|^\s*(\/\*)/;
+    this.foldingStopMarker = /^[^\[\{]*(\}|\])|^[\s\*]*(\*\/)/;
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var match = line.match(this.foldingStartMarker);
+        if (match) {
+            var i = match.index;
+
+            if (match[1])
+                return this.openingBracketBlock(session, match[1], row, i);
+
+            var range = session.getCommentFoldRange(row, i + match[0].length);
+            range.end.column -= 2;
+            return range;
+        }
+
+        if (foldStyle !== "markbeginend")
+            return;
+            
+        var match = line.match(this.foldingStopMarker);
+        if (match) {
+            var i = match.index + match[0].length;
+
+            if (match[2]) {
+                var range = session.getCommentFoldRange(row, i);
+                range.end.column -= 2;
+                return range;
+            }
+
+            var end = {row: row, column: i};
+            var start = session.$findOpeningBracket(match[1], end);
+            
+            if (!start)
+                return;
+
+            start.column++;
+            end.column--;
+
+            return  Range.fromPoints(start, end);
+        }
+    };
+    
+}).call(FoldMode.prototype);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/fold_mode', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../../range").Range;
+
+var FoldMode = exports.FoldMode = function() {};
+
+(function() {
+
+    this.foldingStartMarker = null;
+    this.foldingStopMarker = null;
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        if (this.foldingStartMarker.test(line))
+            return "start";
+        if (foldStyle == "markbeginend"
+                && this.foldingStopMarker
+                && this.foldingStopMarker.test(line))
+            return "end";
+        return "";
+    };
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        return null;
+    };
+
+    this.indentationBlock = function(session, row, column) {
+        var re = /^\s*/;
+        var startRow = row;
+        var endRow = row;
+        var line = session.getLine(row);
+        var startColumn = column || line.length;
+        var startLevel = line.match(re)[0].length;
+        var maxRow = session.getLength()
+        
+        while (++row < maxRow) {
+            line = session.getLine(row);
+            var level = line.match(re)[0].length;
+
+            if (level == line.length)
+                continue;
+
+            if (level <= startLevel)
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+    this.openingBracketBlock = function(session, bracket, row, column) {
+        var start = {row: row, column: column + 1};
+        var end = session.$findClosingBracket(bracket, start);
+        if (!end)
+            return;
+
+        var fw = session.foldWidgets[end.row];
+        if (fw == null)
+            fw = this.getFoldWidget(session, end.row);
+
+        if (fw == "start") {
+            end.row --;
+            end.column = session.getLine(end.row).length;
+        }
+        return Range.fromPoints(start, end);
+    };
+
+}).call(FoldMode.prototype);
+
+});
+
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/json', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/json_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/mode/behaviour/cstyle', 'ace/mode/folding/cstyle', 'ace/worker/worker_client'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var Tokenizer = require("../tokenizer").Tokenizer;
+var HighlightRules = require("./json_highlight_rules").JsonHighlightRules;
+var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+var WorkerClient = require("../worker/worker_client").WorkerClient;
+
+var Mode = function() {
+    this.$tokenizer = new Tokenizer(new HighlightRules().getRules());
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CstyleBehaviour();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "worker-json.js", "ace/mode/json_worker", "JsonWorker");
+        worker.attachToDocument(session.getDocument());
+
+        worker.on("error", function(e) {
+            session.setAnnotations([e.data]);
+        });
+
+        worker.on("ok", function() {
+            session.clearAnnotations();
+        });
+
+        return worker;
+    };
+
+
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *      Mihai Sucan <mihai DOT sucan AT gmail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/json_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+
+var JsonHighlightRules = function() {
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+    this.$rules = {
+        "start" : [
+            {
+                token : "string", // single line
+                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+            }, {
+                token : "constant.numeric", // hex
+                regex : "0[xX][0-9a-fA-F]+\\b"
+            }, {
+                token : "constant.numeric", // float
+                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+            }, {
+                token : "constant.language.boolean",
+                regex : "(?:true|false)\\b"
+            }, {
+                token : "invalid.illegal", // single quoted strings are not allowed
+                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+            }, {
+                token : "invalid.illegal", // comments are not allowed
+                regex : "\\/\\/.*$"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ]
+    };
+    
+};
+
+oop.inherits(JsonHighlightRules, TextHighlightRules);
+
+exports.JsonHighlightRules = JsonHighlightRules;
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/matching_brace_outdent', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../range").Range;
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        var match = line.match(/^(\s+)/);
+        if (match) {
+            return match[1];
+        }
+
+        return "";
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+});
+/* vim:ts=4:sts=4:sw=4:
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Chris Spencer <chris.ag.spencer AT googlemail DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/behaviour/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/behaviour'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Behaviour = require('../behaviour').Behaviour;
+
+var CstyleBehaviour = function () {
+
+    this.add("braces", "insertion", function (state, action, editor, session, text) {
+        if (text == '{') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '{' + selected + '}',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '{}',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == '}') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var matching = session.$findOpeningBracket('}', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        } else if (text == "\n") {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == '}') {
+                var openBracePos = session.findMatchingBracket({row: cursor.row, column: cursor.column + 1});
+                if (!openBracePos)
+                     return null;
+
+                var indent = this.getNextLineIndent(state, line.substring(0, line.length - 1), session.getTabString());
+                var next_indent = this.$getIndent(session.doc.getLine(openBracePos.row));
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent,
+                    selection: [1, indent.length, 1, indent.length]
+                }
+            }
+        }
+    });
+
+    this.add("braces", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '{') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.end.column, range.end.column + 1);
+            if (rightChar == '}') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("parens", "insertion", function (state, action, editor, session, text) {
+        if (text == '(') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '(' + selected + ')',
+                    selection: false
+                }
+            } else {
+                return {
+                    text: '()',
+                    selection: [1, 1]
+                }
+            }
+        } else if (text == ')') {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var rightChar = line.substring(cursor.column, cursor.column + 1);
+            if (rightChar == ')') {
+                var matching = session.$findOpeningBracket(')', {column: cursor.column + 1, row: cursor.row});
+                if (matching !== null) {
+                    return {
+                        text: '',
+                        selection: [1, 1]
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("parens", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '(') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == ')') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+    this.add("string_dquotes", "insertion", function (state, action, editor, session, text) {
+        if (text == '"') {
+            var selection = editor.getSelectionRange();
+            var selected = session.doc.getTextRange(selection);
+            if (selected !== "") {
+                return {
+                    text: '"' + selected + '"',
+                    selection: false
+                }
+            } else {
+                var cursor = editor.getCursorPosition();
+                var line = session.doc.getLine(cursor.row);
+                var leftChar = line.substring(cursor.column-1, cursor.column);
+
+                // We're escaped.
+                if (leftChar == '\\') {
+                    return null;
+                }
+
+                // Find what token we're inside.
+                var tokens = session.getTokens(selection.start.row, selection.start.row)[0].tokens;
+                var col = 0, token;
+                var quotepos = -1; // Track whether we're inside an open quote.
+
+                for (var x = 0; x < tokens.length; x++) {
+                    token = tokens[x];
+                    if (token.type == "string") {
+                      quotepos = -1;
+                    } else if (quotepos < 0) {
+                      quotepos = token.value.indexOf('"');
+                    }
+                    if ((token.value.length + col) > selection.start.column) {
+                        break;
+                    }
+                    col += tokens[x].value.length;
+                }
+
+                // Try and be smart about when we auto insert.
+                if (!token || (quotepos < 0 && token.type !== "comment" && (token.type !== "string" || ((selection.start.column !== token.value.length+col-1) && token.value.lastIndexOf('"') === token.value.length-1)))) {
+                    return {
+                        text: '""',
+                        selection: [1,1]
+                    }
+                } else if (token && token.type === "string") {
+                    // Ignore input and move right one if we're typing over the closing quote.
+                    var rightChar = line.substring(cursor.column, cursor.column + 1);
+                    if (rightChar == '"') {
+                        return {
+                            text: '',
+                            selection: [1, 1]
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    this.add("string_dquotes", "deletion", function (state, action, editor, session, range) {
+        var selected = session.doc.getTextRange(range);
+        if (!range.isMultiLine() && selected == '"') {
+            var line = session.doc.getLine(range.start.row);
+            var rightChar = line.substring(range.start.column + 1, range.start.column + 2);
+            if (rightChar == '"') {
+                range.end.column++;
+                return range;
+            }
+        }
+    });
+
+}
+oop.inherits(CstyleBehaviour, Behaviour);
+
+exports.CstyleBehaviour = CstyleBehaviour;
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/cstyle', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/range', 'ace/mode/folding/fold_mode'], function(require, exports, module) {
+"use strict";
+
+var oop = require("../../lib/oop");
+var Range = require("../../range").Range;
+var BaseFoldMode = require("./fold_mode").FoldMode;
+
+var FoldMode = exports.FoldMode = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.foldingStartMarker = /(\{|\[)[^\}\]]*$|^\s*(\/\*)/;
+    this.foldingStopMarker = /^[^\[\{]*(\}|\])|^[\s\*]*(\*\/)/;
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var match = line.match(this.foldingStartMarker);
+        if (match) {
+            var i = match.index;
+
+            if (match[1])
+                return this.openingBracketBlock(session, match[1], row, i);
+
+            var range = session.getCommentFoldRange(row, i + match[0].length);
+            range.end.column -= 2;
+            return range;
+        }
+
+        if (foldStyle !== "markbeginend")
+            return;
+            
+        var match = line.match(this.foldingStopMarker);
+        if (match) {
+            var i = match.index + match[0].length;
+
+            if (match[2]) {
+                var range = session.getCommentFoldRange(row, i);
+                range.end.column -= 2;
+                return range;
+            }
+
+            var end = {row: row, column: i};
+            var start = session.$findOpeningBracket(match[1], end);
+            
+            if (!start)
+                return;
+
+            start.column++;
+            end.column--;
+
+            return  Range.fromPoints(start, end);
+        }
+    };
+    
+}).call(FoldMode.prototype);
+
+});/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/mode/folding/fold_mode', ['require', 'exports', 'module' , 'ace/range'], function(require, exports, module) {
+"use strict";
+
+var Range = require("../../range").Range;
+
+var FoldMode = exports.FoldMode = function() {};
+
+(function() {
+
+    this.foldingStartMarker = null;
+    this.foldingStopMarker = null;
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        if (this.foldingStartMarker.test(line))
+            return "start";
+        if (foldStyle == "markbeginend"
+                && this.foldingStopMarker
+                && this.foldingStopMarker.test(line))
+            return "end";
+        return "";
+    };
+    
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        return null;
+    };
+
+    this.indentationBlock = function(session, row, column) {
+        var re = /^\s*/;
+        var startRow = row;
+        var endRow = row;
+        var line = session.getLine(row);
+        var startColumn = column || line.length;
+        var startLevel = line.match(re)[0].length;
+        var maxRow = session.getLength()
+        
+        while (++row < maxRow) {
+            line = session.getLine(row);
+            var level = line.match(re)[0].length;
+
+            if (level == line.length)
+                continue;
+
+            if (level <= startLevel)
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+    this.openingBracketBlock = function(session, bracket, row, column) {
+        var start = {row: row, column: column + 1};
+        var end = session.$findClosingBracket(bracket, start);
+        if (!end)
+            return;
+
+        var fw = session.foldWidgets[end.row];
+        if (fw == null)
+            fw = this.getFoldWidget(session, end.row);
+
+        if (fw == "start") {
+            end.row --;
+            end.column = session.getLine(end.row).length;
+        }
+        return Range.fromPoints(start, end);
+    };
+
+}).call(FoldMode.prototype);
+
+});
+
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/chrome', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.cssClass = "ace-chrome";
+exports.cssText = ".ace-chrome .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-chrome .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-chrome .ace_gutter {\
+  width: 50px;\
+  background: #e8e8e8;\
+  color: #333;\
+  overflow : hidden;\
+}\
+\
+.ace-chrome .ace_gutter-layer {\
+  width: 100%;\
+  text-align: right;\
+}\
+\
+.ace-chrome .ace_gutter-layer .ace_gutter-cell {\
+  padding-right: 6px;\
+}\
+\
+.ace-chrome .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-chrome .ace_text-layer {\
+  cursor: text;\
+}\
+\
+.ace-chrome .ace_cursor {\
+  border-left: 2px solid black;\
+}\
+\
+.ace-chrome .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid black;\
+}\
+\
+.ace-chrome .ace_line .ace_invisible {\
+  color: rgb(191, 191, 191);\
+}\
+\
+.ace-chrome .ace_line .ace_constant.ace_buildin {\
+  color: rgb(88, 72, 246);\
+}\
+\
+.ace-chrome .ace_line .ace_constant.ace_language {\
+  color: rgb(88, 92, 246);\
+}\
+\
+.ace-chrome .ace_line .ace_constant.ace_library {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-chrome .ace_line .ace_invalid {\
+  background-color: rgb(153, 0, 0);\
+  color: white;\
+}\
+\
+.ace-chrome .ace_line .ace_fold {\
+}\
+\
+.ace-chrome .ace_line .ace_support.ace_function {\
+  color: rgb(60, 76, 114);\
+}\
+\
+.ace-chrome .ace_line .ace_support.ace_constant {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-chrome .ace_line .ace_support.ace_type,\
+.ace-chrome .ace_line .ace_support.ace_class {\
+  color: rgb(109, 121, 222);\
+}\
+\
+.ace-chrome .ace_variable.ace_parameter {\
+  font-style:italic;\
+color:#FD971F;\
+}\
+.ace-chrome .ace_line .ace_keyword.ace_operator {\
+  color: rgb(104, 118, 135);\
+}\
+\
+.ace-chrome .ace_line .ace_comment {\
+  color: #236e24;\
+}\
+\
+.ace-chrome .ace_line .ace_comment.ace_doc {\
+  color: #236e24;\
+}\
+\
+.ace-chrome .ace_line .ace_comment.ace_doc.ace_tag {\
+  color: #236e24;\
+}\
+\
+.ace-chrome .ace_line .ace_constant.ace_numeric {\
+  color: rgb(0, 0, 205);\
+}\
+\
+.ace-chrome .ace_line .ace_variable {\
+  color: rgb(49, 132, 149);\
+}\
+\
+.ace-chrome .ace_line .ace_xml_pe {\
+  color: rgb(104, 104, 91);\
+}\
+\
+.ace-chrome .ace_entity.ace_name.ace_function {\
+  color: #0000A2;\
+}\
+\
+.ace-chrome .ace_markup.ace_markupine {\
+    text-decoration:underline;\
+}\
+\
+.ace-chrome .ace_markup.ace_heading {\
+  color: rgb(12, 7, 255);\
+}\
+\
+.ace-chrome .ace_markup.ace_list {\
+  color:rgb(185, 6, 144);\
+}\
+\
+.ace-chrome .ace_marker-layer .ace_selection {\
+  background: rgb(181, 213, 255);\
+}\
+\
+.ace-chrome .ace_marker-layer .ace_step {\
+  background: rgb(252, 255, 0);\
+}\
+\
+.ace-chrome .ace_marker-layer .ace_stack {\
+  background: rgb(164, 229, 101);\
+}\
+\
+.ace-chrome .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgb(192, 192, 192);\
+}\
+\
+.ace-chrome .ace_marker-layer .ace_active_line {\
+  background: rgba(0, 0, 0, 0.07);\
+}\
+\
+.ace-chrome .ace_marker-layer .ace_selected_word {\
+  background: rgb(250, 250, 255);\
+  border: 1px solid rgb(200, 200, 250);\
+}\
+\
+.ace-chrome .ace_storage,\
+.ace-chrome .ace_line .ace_keyword,\
+.ace-chrome .ace_meta.ace_tag {\
+  color: rgb(147, 15, 128);\
+}\
+\
+.ace-chrome .ace_string.ace_regex {\
+  color: rgb(255, 0, 0)\
+}\
+\
+.ace-chrome .ace_line .ace_string,\
+.ace-chrome .ace_entity.ace_other.ace_attribute-name{\
+  color: #994409;\
+}";
+
+var dom = require("../lib/dom");
+dom.importCssString(exports.cssText, exports.cssClass);
+
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/clouds', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = false;
+exports.cssClass = "ace-clouds";
+exports.cssText = "\
+.ace-clouds .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-clouds .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-clouds .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-clouds .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-clouds .ace_scroller {\
+  background-color: #FFFFFF;\
+}\
+\
+.ace-clouds .ace_text-layer {\
+  cursor: text;\
+  color: #000000;\
+}\
+\
+.ace-clouds .ace_cursor {\
+  border-left: 2px solid #000000;\
+}\
+\
+.ace-clouds .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #000000;\
+}\
+ \
+.ace-clouds .ace_marker-layer .ace_selection {\
+  background: #BDD5FC;\
+}\
+\
+.ace-clouds .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-clouds .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #BFBFBF;\
+}\
+\
+.ace-clouds .ace_marker-layer .ace_active_line {\
+  background: #FFFBD1;\
+}\
+\
+.ace-clouds .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #BDD5FC;\
+}\
+       \
+.ace-clouds .ace_invisible {\
+  color: #BFBFBF;\
+}\
+\
+.ace-clouds .ace_keyword {\
+  color:#AF956F;\
+}\
+\
+.ace-clouds .ace_keyword.ace_operator {\
+  color:#484848;\
+}\
+\
+.ace-clouds .ace_constant.ace_language {\
+  color:#39946A;\
+}\
+\
+.ace-clouds .ace_constant.ace_numeric {\
+  color:#46A609;\
+}\
+\
+.ace-clouds .ace_invalid {\
+  background-color:#FF002A;\
+}\
+\
+.ace-clouds .ace_fold {\
+    background-color: #AF956F;\
+    border-color: #000000;\
+}\
+\
+.ace-clouds .ace_support.ace_function {\
+  color:#C52727;\
+}\
+\
+.ace-clouds .ace_storage {\
+  color:#C52727;\
+}\
+\
+.ace-clouds .ace_string {\
+  color:#5D90CD;\
+}\
+\
+.ace-clouds .ace_comment {\
+  color:#BCC8BA;\
+}\
+\
+.ace-clouds .ace_entity.ace_other.ace_attribute-name {\
+  color:#606060;\
+}\
+\
+.ace-clouds .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/clouds_midnight', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-clouds-midnight";
+exports.cssText = "\
+.ace-clouds-midnight .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-clouds-midnight .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-clouds-midnight .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-clouds-midnight .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-clouds-midnight .ace_scroller {\
+  background-color: #191919;\
+}\
+\
+.ace-clouds-midnight .ace_text-layer {\
+  cursor: text;\
+  color: #929292;\
+}\
+\
+.ace-clouds-midnight .ace_cursor {\
+  border-left: 2px solid #7DA5DC;\
+}\
+\
+.ace-clouds-midnight .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #7DA5DC;\
+}\
+ \
+.ace-clouds-midnight .ace_marker-layer .ace_selection {\
+  background: #000000;\
+}\
+\
+.ace-clouds-midnight .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-clouds-midnight .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #BFBFBF;\
+}\
+\
+.ace-clouds-midnight .ace_marker-layer .ace_active_line {\
+  background: rgba(215, 215, 215, 0.031);\
+}\
+\
+.ace-clouds-midnight .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #000000;\
+}\
+       \
+.ace-clouds-midnight .ace_invisible {\
+  color: #BFBFBF;\
+}\
+\
+.ace-clouds-midnight .ace_keyword {\
+  color:#927C5D;\
+}\
+\
+.ace-clouds-midnight .ace_keyword.ace_operator {\
+  color:#4B4B4B;\
+}\
+\
+.ace-clouds-midnight .ace_constant.ace_language {\
+  color:#39946A;\
+}\
+\
+.ace-clouds-midnight .ace_constant.ace_numeric {\
+  color:#46A609;\
+}\
+\
+.ace-clouds-midnight .ace_invalid {\
+  color:#FFFFFF;\
+background-color:#E92E2E;\
+}\
+\
+.ace-clouds-midnight .ace_fold {\
+    background-color: #927C5D;\
+    border-color: #929292;\
+}\
+\
+.ace-clouds-midnight .ace_support.ace_function {\
+  color:#E92E2E;\
+}\
+\
+.ace-clouds-midnight .ace_storage {\
+  color:#E92E2E;\
+}\
+\
+.ace-clouds-midnight .ace_string {\
+  color:#5D90CD;\
+}\
+\
+.ace-clouds-midnight .ace_comment {\
+  color:#3C403B;\
+}\
+\
+.ace-clouds-midnight .ace_entity.ace_other.ace_attribute-name {\
+  color:#606060;\
+}\
+\
+.ace-clouds-midnight .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/cobalt', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-cobalt";
+exports.cssText = "\
+.ace-cobalt .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-cobalt .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-cobalt .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-cobalt .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-cobalt .ace_scroller {\
+  background-color: #002240;\
+}\
+\
+.ace-cobalt .ace_text-layer {\
+  cursor: text;\
+  color: #FFFFFF;\
+}\
+\
+.ace-cobalt .ace_cursor {\
+  border-left: 2px solid #FFFFFF;\
+}\
+\
+.ace-cobalt .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FFFFFF;\
+}\
+ \
+.ace-cobalt .ace_marker-layer .ace_selection {\
+  background: rgba(179, 101, 57, 0.75);\
+}\
+\
+.ace-cobalt .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-cobalt .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(255, 255, 255, 0.15);\
+}\
+\
+.ace-cobalt .ace_marker-layer .ace_active_line {\
+  background: rgba(0, 0, 0, 0.35);\
+}\
+\
+.ace-cobalt .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(179, 101, 57, 0.75);\
+}\
+       \
+.ace-cobalt .ace_invisible {\
+  color: rgba(255, 255, 255, 0.15);\
+}\
+\
+.ace-cobalt .ace_keyword {\
+  color:#FF9D00;\
+}\
+\
+.ace-cobalt .ace_constant {\
+  color:#FF628C;\
+}\
+\
+.ace-cobalt .ace_invalid {\
+  color:#F8F8F8;\
+background-color:#800F00;\
+}\
+\
+.ace-cobalt .ace_support {\
+  color:#80FFBB;\
+}\
+\
+.ace-cobalt .ace_fold {\
+    background-color: #FF9D00;\
+    border-color: #FFFFFF;\
+}\
+\
+.ace-cobalt .ace_support.ace_function {\
+  color:#FFB054;\
+}\
+\
+.ace-cobalt .ace_storage {\
+  color:#FFEE80;\
+}\
+\
+.ace-cobalt .ace_string.ace_regexp {\
+  color:#80FFC2;\
+}\
+\
+.ace-cobalt .ace_comment {\
+  font-style:italic;\
+color:#0088FF;\
+}\
+\
+.ace-cobalt .ace_variable {\
+  color:#CCCCCC;\
+}\
+\
+.ace-cobalt .ace_variable.ace_language {\
+  color:#FF80E1;\
+}\
+\
+.ace-cobalt .ace_meta.ace_tag {\
+  color:#9EFFFF;\
+}\
+\
+.ace-cobalt .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-cobalt .ace_markup.ace_heading {\
+  color:#C8E4FD;\
+background-color:#001221;\
+}\
+\
+.ace-cobalt .ace_markup.ace_list {\
+  background-color:#130D26;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/crimson_editor', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+exports.isDark = false;
+exports.cssText = ".ace-crimson-editor .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-crimson-editor .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-crimson-editor .ace_gutter {\
+  width: 50px;\
+  background: #e8e8e8;\
+  color: #333;\
+  overflow : hidden;\
+}\
+\
+.ace-crimson-editor .ace_gutter-layer {\
+  width: 100%;\
+  text-align: right;\
+}\
+\
+.ace-crimson-editor .ace_gutter-layer .ace_gutter-cell {\
+  padding-right: 6px;\
+}\
+\
+.ace-crimson-editor .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-crimson-editor .ace_text-layer {\
+  cursor: text;\
+  color: rgb(64, 64, 64);\
+}\
+\
+.ace-crimson-editor .ace_cursor {\
+  border-left: 2px solid black;\
+}\
+\
+.ace-crimson-editor .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid black;\
+}\
+\
+.ace-crimson-editor .ace_line .ace_invisible {\
+  color: rgb(191, 191, 191);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_identifier {\
+  color: black;\
+}\
+\
+.ace-crimson-editor .ace_line .ace_keyword {\
+  color: blue;\
+}\
+\
+.ace-crimson-editor .ace_line .ace_constant.ace_buildin {\
+  color: rgb(88, 72, 246);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_constant.ace_language {\
+  color: rgb(255, 156, 0);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_constant.ace_library {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_invalid {\
+  text-decoration: line-through;\
+  color: rgb(224, 0, 0);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_fold {\
+}\
+\
+.ace-crimson-editor .ace_line .ace_support.ace_function {\
+  color: rgb(192, 0, 0);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_support.ace_constant {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_support.ace_type,\
+.ace-crimson-editor .ace_line .ace_support.ace_class {\
+  color: rgb(109, 121, 222);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_keyword.ace_operator {\
+  color: rgb(49, 132, 149);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_string {\
+  color: rgb(128, 0, 128);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_comment {\
+  color: rgb(76, 136, 107);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_comment.ace_doc {\
+  color: rgb(0, 102, 255);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_comment.ace_doc.ace_tag {\
+  color: rgb(128, 159, 191);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_constant.ace_numeric {\
+  color: rgb(0, 0, 64);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_variable {\
+  color: rgb(0, 64, 128);\
+}\
+\
+.ace-crimson-editor .ace_line .ace_xml_pe {\
+  color: rgb(104, 104, 91);\
+}\
+\
+.ace-crimson-editor .ace_marker-layer .ace_selection {\
+  background: rgb(181, 213, 255);\
+}\
+\
+.ace-crimson-editor .ace_marker-layer .ace_step {\
+  background: rgb(252, 255, 0);\
+}\
+\
+.ace-crimson-editor .ace_marker-layer .ace_stack {\
+  background: rgb(164, 229, 101);\
+}\
+\
+.ace-crimson-editor .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgb(192, 192, 192);\
+}\
+\
+.ace-crimson-editor .ace_marker-layer .ace_active_line {\
+  background: rgb(232, 242, 254);\
+}\
+\
+.ace-crimson-editor .ace_meta.ace_tag {\
+  color:rgb(28, 2, 255);\
+}\
+\
+.ace-crimson-editor .ace_marker-layer .ace_selected_word {\
+  background: rgb(250, 250, 255);\
+  border: 1px solid rgb(200, 200, 250);\
+}\
+\
+.ace-crimson-editor .ace_string.ace_regex {\
+  color: rgb(192, 0, 192);\
+}";
+
+exports.cssClass = "ace-crimson-editor";
+
+var dom = require("../lib/dom");
+dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/dawn', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = false;
+exports.cssClass = "ace-dawn";
+exports.cssText = "\
+.ace-dawn .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-dawn .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-dawn .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-dawn .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-dawn .ace_scroller {\
+  background-color: #F9F9F9;\
+}\
+\
+.ace-dawn .ace_text-layer {\
+  cursor: text;\
+  color: #080808;\
+}\
+\
+.ace-dawn .ace_cursor {\
+  border-left: 2px solid #000000;\
+}\
+\
+.ace-dawn .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #000000;\
+}\
+ \
+.ace-dawn .ace_marker-layer .ace_selection {\
+  background: rgba(39, 95, 255, 0.30);\
+}\
+\
+.ace-dawn .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-dawn .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(75, 75, 126, 0.50);\
+}\
+\
+.ace-dawn .ace_marker-layer .ace_active_line {\
+  background: rgba(36, 99, 180, 0.12);\
+}\
+\
+.ace-dawn .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(39, 95, 255, 0.30);\
+}\
+       \
+.ace-dawn .ace_invisible {\
+  color: rgba(75, 75, 126, 0.50);\
+}\
+\
+.ace-dawn .ace_keyword {\
+  color:#794938;\
+}\
+\
+.ace-dawn .ace_constant {\
+  color:#811F24;\
+}\
+\
+.ace-dawn .ace_invalid.ace_illegal {\
+  text-decoration:underline;\
+font-style:italic;\
+color:#F8F8F8;\
+background-color:#B52A1D;\
+}\
+\
+.ace-dawn .ace_invalid.ace_deprecated {\
+  text-decoration:underline;\
+font-style:italic;\
+color:#B52A1D;\
+}\
+\
+.ace-dawn .ace_support {\
+  color:#691C97;\
+}\
+\
+.ace-dawn .ace_fold {\
+    background-color: #794938;\
+    border-color: #080808;\
+}\
+\
+.ace-dawn .ace_support.ace_function {\
+  color:#693A17;\
+}\
+\
+.ace-dawn .ace_storage {\
+  font-style:italic;\
+color:#A71D5D;\
+}\
+\
+.ace-dawn .ace_string {\
+  color:#0B6125;\
+}\
+\
+.ace-dawn .ace_string.ace_regexp {\
+  color:#CF5628;\
+}\
+\
+.ace-dawn .ace_comment {\
+  font-style:italic;\
+color:#5A525F;\
+}\
+\
+.ace-dawn .ace_variable {\
+  color:#234A97;\
+}\
+\
+.ace-dawn .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-dawn .ace_markup.ace_heading {\
+  color:#19356D;\
+}\
+\
+.ace-dawn .ace_markup.ace_list {\
+  color:#693A17;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Adam Jimenez <adam AT shiftcreate DOT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/dreamweaver', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+exports.isDark = false;
+exports.cssClass = "ace-dreamweaver";
+exports.cssText = ".ace-dreamweaver .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-dreamweaver .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-dreamweaver .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-dreamweaver .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-dreamweaver .ace_fold {\
+    background-color: #00F;\
+}\
+\
+.ace-dreamweaver .ace_text-layer {\
+  cursor: text;\
+}\
+\
+.ace-dreamweaver .ace_cursor {\
+  border-left: 2px solid black;\
+}\
+\
+.ace-dreamweaver .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid black;\
+}\
+        \
+.ace-dreamweaver .ace_line .ace_invisible {\
+  color: rgb(191, 191, 191);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_storage,\
+.ace-dreamweaver .ace_line .ace_keyword {\
+  color: blue;\
+}\
+\
+.ace-dreamweaver .ace_line .ace_constant.ace_buildin {\
+  color: rgb(88, 72, 246);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_constant.ace_language {\
+  color: rgb(88, 92, 246);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_constant.ace_library {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_invalid {\
+  background-color: rgb(153, 0, 0);\
+  color: white;\
+}\
+\
+.ace-dreamweaver .ace_line .ace_support.ace_function {\
+  color: rgb(60, 76, 114);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_support.ace_constant {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_support.ace_type,\
+.ace-dreamweaver .ace_line .ace_support.ace_class {\
+  color: #009;\
+}\
+\
+.ace-dreamweaver .ace_line .ace_support.ace_php_tag {\
+  color: #f00;\
+}\
+\
+.ace-dreamweaver .ace_line .ace_keyword.ace_operator {\
+  color: rgb(104, 118, 135);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_string {\
+  color: #00F;\
+}\
+\
+.ace-dreamweaver .ace_line .ace_comment {\
+  color: rgb(76, 136, 107);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_comment.ace_doc {\
+  color: rgb(0, 102, 255);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_comment.ace_doc.ace_tag {\
+  color: rgb(128, 159, 191);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_constant.ace_numeric {\
+  color: rgb(0, 0, 205);\
+}\
+\
+.ace-dreamweaver .ace_line .ace_variable {\
+  color: #06F\
+}\
+\
+.ace-dreamweaver .ace_line .ace_xml_pe {\
+  color: rgb(104, 104, 91);\
+}\
+\
+.ace-dreamweaver .ace_entity.ace_name.ace_function {\
+  color: #00F;\
+}\
+\
+.ace-dreamweaver .ace_markup.ace_markupine {\
+    text-decoration:underline;\
+}\
+\
+.ace-dreamweaver .ace_markup.ace_heading {\
+  color: rgb(12, 7, 255);\
+}\
+\
+.ace-dreamweaver .ace_markup.ace_list {\
+  color:rgb(185, 6, 144);\
+}\
+\
+.ace-dreamweaver .ace_marker-layer .ace_selection {\
+  background: rgb(181, 213, 255);\
+}\
+\
+.ace-dreamweaver .ace_marker-layer .ace_step {\
+  background: rgb(252, 255, 0);\
+}\
+\
+.ace-dreamweaver .ace_marker-layer .ace_stack {\
+  background: rgb(164, 229, 101);\
+}\
+\
+.ace-dreamweaver .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgb(192, 192, 192);\
+}\
+\
+.ace-dreamweaver .ace_marker-layer .ace_active_line {\
+  background: rgba(0, 0, 0, 0.07);\
+}\
+\
+.ace-dreamweaver .ace_marker-layer .ace_selected_word {\
+  background: rgb(250, 250, 255);\
+  border: 1px solid rgb(200, 200, 250);\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag {\
+  color:#009;\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag.ace_anchor {\
+  color:#060;\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag.ace_form {\
+  color:#F90;\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag.ace_image {\
+  color:#909;\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag.ace_script {\
+  color:#900;\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag.ace_style {\
+  color:#909;\
+}\
+\
+.ace-dreamweaver .ace_meta.ace_tag.ace_table {\
+  color:#099;\
+}\
+\
+.ace-dreamweaver .ace_string.ace_regex {\
+  color: rgb(255, 0, 0)\
+}";
+
+var dom = require("../lib/dom");
+dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/eclipse', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+"use strict";
+
+exports.isDark = false;
+exports.cssText = ".ace-eclipse .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-eclipse .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-eclipse .ace_gutter {\
+  background: rgb(227, 227, 227);\
+  border-right: 1px solid rgb(159, 159, 159);\
+  color: rgb(136, 136, 136);\
+}\
+\
+.ace-eclipse .ace_print_margin {\
+  width: 1px;\
+  background: #b1b4ba;\
+}\
+\
+.ace-eclipse .ace_fold {\
+    background-color: rgb(60, 76, 114);\
+}\
+\
+.ace-eclipse .ace_text-layer {\
+  cursor: text;\
+}\
+\
+.ace-eclipse .ace_cursor {\
+  border-left: 1px solid black;\
+}\
+\
+.ace-eclipse .ace_line .ace_storage,\
+.ace-eclipse .ace_line .ace_keyword,\
+.ace-eclipse .ace_line .ace_variable {\
+  color: rgb(127, 0, 85);\
+}\
+\
+.ace-eclipse .ace_line .ace_constant.ace_buildin {\
+  color: rgb(88, 72, 246);\
+}\
+\
+.ace-eclipse .ace_line .ace_constant.ace_library {\
+  color: rgb(6, 150, 14);\
+}\
+\
+.ace-eclipse .ace_line .ace_function {\
+  color: rgb(60, 76, 114);\
+}\
+\
+.ace-eclipse .ace_line .ace_string {\
+  color: rgb(42, 0, 255);\
+}\
+\
+.ace-eclipse .ace_line .ace_comment {\
+  color: rgb(63, 127, 95);\
+}\
+\
+.ace-eclipse .ace_line .ace_comment.ace_doc {\
+  color: rgb(63, 95, 191);\
+}\
+\
+.ace-eclipse .ace_line .ace_comment.ace_doc.ace_tag {\
+  color: rgb(127, 159, 191);\
+}\
+\
+.ace-eclipse .ace_line .ace_constant.ace_numeric {\
+}\
+\
+.ace-eclipse .ace_line .ace_tag {\
+  color: rgb(63, 127, 127);\
+}\
+\
+.ace-eclipse .ace_line .ace_type {\
+  color: rgb(127, 0, 127);\
+}\
+\
+.ace-eclipse .ace_line .ace_xml_pe {\
+  color: rgb(104, 104, 91);\
+}\
+\
+.ace-eclipse .ace_marker-layer .ace_selection {\
+  background: rgb(181, 213, 255);\
+}\
+\
+.ace-eclipse .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgb(192, 192, 192);\
+}\
+\
+.ace-eclipse .ace_line .ace_meta.ace_tag {\
+  color:rgb(63, 127, 127);\
+}\
+\
+.ace-eclipse .ace_entity.ace_other.ace_attribute-name {\
+  color:rgb(127, 0, 127);\
+}\
+\
+.ace-eclipse .ace_marker-layer .ace_active_line {\
+  background: rgb(232, 242, 254);\
+}";
+
+exports.cssClass = "ace-eclipse";
+
+var dom = require("../lib/dom");
+dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/idle_fingers', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-idle-fingers";
+exports.cssText = "\
+.ace-idle-fingers .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-idle-fingers .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-idle-fingers .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-idle-fingers .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-idle-fingers .ace_scroller {\
+  background-color: #323232;\
+}\
+\
+.ace-idle-fingers .ace_text-layer {\
+  cursor: text;\
+  color: #FFFFFF;\
+}\
+\
+.ace-idle-fingers .ace_cursor {\
+  border-left: 2px solid #91FF00;\
+}\
+\
+.ace-idle-fingers .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #91FF00;\
+}\
+ \
+.ace-idle-fingers .ace_marker-layer .ace_selection {\
+  background: rgba(90, 100, 126, 0.88);\
+}\
+\
+.ace-idle-fingers .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-idle-fingers .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #404040;\
+}\
+\
+.ace-idle-fingers .ace_marker-layer .ace_active_line {\
+  background: #353637;\
+}\
+\
+.ace-idle-fingers .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(90, 100, 126, 0.88);\
+}\
+       \
+.ace-idle-fingers .ace_invisible {\
+  color: #404040;\
+}\
+\
+.ace-idle-fingers .ace_keyword {\
+  color:#CC7833;\
+}\
+\
+.ace-idle-fingers .ace_constant {\
+  color:#6C99BB;\
+}\
+\
+.ace-idle-fingers .ace_invalid {\
+  color:#FFFFFF;\
+background-color:#FF0000;\
+}\
+\
+.ace-idle-fingers .ace_fold {\
+    background-color: #CC7833;\
+    border-color: #FFFFFF;\
+}\
+\
+.ace-idle-fingers .ace_support.ace_function {\
+  color:#B83426;\
+}\
+\
+.ace-idle-fingers .ace_variable.ace_parameter {\
+  font-style:italic;\
+}\
+\
+.ace-idle-fingers .ace_string {\
+  color:#A5C261;\
+}\
+\
+.ace-idle-fingers .ace_string.ace_regexp {\
+  color:#CCCC33;\
+}\
+\
+.ace-idle-fingers .ace_comment {\
+  font-style:italic;\
+color:#BC9458;\
+}\
+\
+.ace-idle-fingers .ace_meta.ace_tag {\
+  color:#FFE5BB;\
+}\
+\
+.ace-idle-fingers .ace_entity.ace_name {\
+  color:#FFC66D;\
+}\
+\
+.ace-idle-fingers .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-idle-fingers .ace_collab.ace_user1 {\
+  color:#323232;\
+background-color:#FFF980;   \
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/kr_theme', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-kr-theme";
+exports.cssText = "\
+.ace-kr-theme .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-kr-theme .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-kr-theme .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-kr-theme .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-kr-theme .ace_scroller {\
+  background-color: #0B0A09;\
+}\
+\
+.ace-kr-theme .ace_text-layer {\
+  cursor: text;\
+  color: #FCFFE0;\
+}\
+\
+.ace-kr-theme .ace_cursor {\
+  border-left: 2px solid #FF9900;\
+}\
+\
+.ace-kr-theme .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FF9900;\
+}\
+ \
+.ace-kr-theme .ace_marker-layer .ace_selection {\
+  background: rgba(170, 0, 255, 0.45);\
+}\
+\
+.ace-kr-theme .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-kr-theme .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(255, 177, 111, 0.32);\
+}\
+\
+.ace-kr-theme .ace_marker-layer .ace_active_line {\
+  background: #38403D;\
+}\
+\
+.ace-kr-theme .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(170, 0, 255, 0.45);\
+}\
+       \
+.ace-kr-theme .ace_invisible {\
+  color: rgba(255, 177, 111, 0.32);\
+}\
+\
+.ace-kr-theme .ace_keyword {\
+  color:#949C8B;\
+}\
+\
+.ace-kr-theme .ace_constant {\
+  color:rgba(210, 117, 24, 0.76);\
+}\
+\
+.ace-kr-theme .ace_invalid {\
+  color:#F8F8F8;\
+background-color:#A41300;\
+}\
+\
+.ace-kr-theme .ace_support {\
+  color:#9FC28A;\
+}\
+\
+.ace-kr-theme .ace_fold {\
+    background-color: #949C8B;\
+    border-color: #FCFFE0;\
+}\
+\
+.ace-kr-theme .ace_support.ace_function {\
+  color:#85873A;\
+}\
+\
+.ace-kr-theme .ace_storage {\
+  color:#FFEE80;\
+}\
+\
+.ace-kr-theme .ace_string.ace_regexp {\
+  color:rgba(125, 255, 192, 0.65);\
+}\
+\
+.ace-kr-theme .ace_comment {\
+  font-style:italic;\
+color:#706D5B;\
+}\
+\
+.ace-kr-theme .ace_variable {\
+  color:#D1A796;\
+}\
+\
+.ace-kr-theme .ace_variable.ace_language {\
+  color:#FF80E1;\
+}\
+\
+.ace-kr-theme .ace_meta.ace_tag {\
+  color:#BABD9C;\
+}\
+\
+.ace-kr-theme .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-kr-theme .ace_markup.ace_list {\
+  background-color:#0F0040;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/merbivore', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-merbivore";
+exports.cssText = "\
+.ace-merbivore .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-merbivore .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-merbivore .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-merbivore .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-merbivore .ace_scroller {\
+  background-color: #161616;\
+}\
+\
+.ace-merbivore .ace_text-layer {\
+  cursor: text;\
+  color: #E6E1DC;\
+}\
+\
+.ace-merbivore .ace_cursor {\
+  border-left: 2px solid #FFFFFF;\
+}\
+\
+.ace-merbivore .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FFFFFF;\
+}\
+ \
+.ace-merbivore .ace_marker-layer .ace_selection {\
+  background: #454545;\
+}\
+\
+.ace-merbivore .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-merbivore .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #404040;\
+}\
+\
+.ace-merbivore .ace_marker-layer .ace_active_line {\
+  background: #333435;\
+}\
+\
+.ace-merbivore .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #454545;\
+}\
+       \
+.ace-merbivore .ace_invisible {\
+  color: #404040;\
+}\
+\
+.ace-merbivore .ace_keyword {\
+  color:#FC6F09;\
+}\
+\
+.ace-merbivore .ace_constant {\
+  color:#1EDAFB;\
+}\
+\
+.ace-merbivore .ace_constant.ace_language {\
+  color:#FDC251;\
+}\
+\
+.ace-merbivore .ace_constant.ace_library {\
+  color:#8DFF0A;\
+}\
+\
+.ace-merbivore .ace_constant.ace_numeric {\
+  color:#58C554;\
+}\
+\
+.ace-merbivore .ace_invalid {\
+  color:#FFFFFF;\
+background-color:#990000;\
+}\
+\
+.ace-merbivore .ace_fold {\
+    background-color: #FC6F09;\
+    border-color: #E6E1DC;\
+}\
+\
+.ace-merbivore .ace_support.ace_function {\
+  color:#FC6F09;\
+}\
+\
+.ace-merbivore .ace_storage {\
+  color:#FC6F09;\
+}\
+\
+.ace-merbivore .ace_string {\
+  color:#8DFF0A;\
+}\
+\
+.ace-merbivore .ace_comment {\
+  font-style:italic;\
+color:#AD2EA4;\
+}\
+\
+.ace-merbivore .ace_meta.ace_tag {\
+  color:#FC6F09;\
+}\
+\
+.ace-merbivore .ace_entity.ace_other.ace_attribute-name {\
+  color:#FFFF89;\
+}\
+\
+.ace-merbivore .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/merbivore_soft', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-merbivore-soft";
+exports.cssText = "\
+.ace-merbivore-soft .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-merbivore-soft .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-merbivore-soft .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-merbivore-soft .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-merbivore-soft .ace_scroller {\
+  background-color: #1C1C1C;\
+}\
+\
+.ace-merbivore-soft .ace_text-layer {\
+  cursor: text;\
+  color: #E6E1DC;\
+}\
+\
+.ace-merbivore-soft .ace_cursor {\
+  border-left: 2px solid #FFFFFF;\
+}\
+\
+.ace-merbivore-soft .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FFFFFF;\
+}\
+ \
+.ace-merbivore-soft .ace_marker-layer .ace_selection {\
+  background: #494949;\
+}\
+\
+.ace-merbivore-soft .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-merbivore-soft .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #404040;\
+}\
+\
+.ace-merbivore-soft .ace_marker-layer .ace_active_line {\
+  background: #333435;\
+}\
+\
+.ace-merbivore-soft .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #494949;\
+}\
+       \
+.ace-merbivore-soft .ace_invisible {\
+  color: #404040;\
+}\
+\
+.ace-merbivore-soft .ace_keyword {\
+  color:#FC803A;\
+}\
+\
+.ace-merbivore-soft .ace_constant {\
+  color:#68C1D8;\
+}\
+\
+.ace-merbivore-soft .ace_constant.ace_language {\
+  color:#E1C582;\
+}\
+\
+.ace-merbivore-soft .ace_constant.ace_library {\
+  color:#8EC65F;\
+}\
+\
+.ace-merbivore-soft .ace_constant.ace_numeric {\
+  color:#7FC578;\
+}\
+\
+.ace-merbivore-soft .ace_invalid {\
+  color:#FFFFFF;\
+background-color:#FE3838;\
+}\
+\
+.ace-merbivore-soft .ace_invalid.ace_deprecated {\
+  color:#FFFFFF;\
+background-color:#FE3838;\
+}\
+\
+.ace-merbivore-soft .ace_fold {\
+    background-color: #FC803A;\
+    border-color: #E6E1DC;\
+}\
+\
+.ace-merbivore-soft .ace_storage {\
+  color:#FC803A;\
+}\
+\
+.ace-merbivore-soft .ace_string {\
+  color:#8EC65F;\
+}\
+\
+.ace-merbivore-soft .ace_comment {\
+  font-style:italic;\
+color:#AC4BB8;\
+}\
+\
+.ace-merbivore-soft .ace_meta {\
+  font-style:italic;\
+color:#AC4BB8;\
+}\
+\
+.ace-merbivore-soft .ace_meta.ace_tag {\
+  color:#FC803A;\
+}\
+\
+.ace-merbivore-soft .ace_entity.ace_other.ace_attribute-name {\
+  color:#EAF1A3;\
+}\
+\
+.ace-merbivore-soft .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/mono_industrial', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-mono-industrial";
+exports.cssText = "\
+.ace-mono-industrial .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-mono-industrial .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-mono-industrial .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-mono-industrial .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-mono-industrial .ace_scroller {\
+  background-color: #222C28;\
+}\
+\
+.ace-mono-industrial .ace_text-layer {\
+  cursor: text;\
+  color: #FFFFFF;\
+}\
+\
+.ace-mono-industrial .ace_cursor {\
+  border-left: 2px solid #FFFFFF;\
+}\
+\
+.ace-mono-industrial .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FFFFFF;\
+}\
+ \
+.ace-mono-industrial .ace_marker-layer .ace_selection {\
+  background: rgba(145, 153, 148, 0.40);\
+}\
+\
+.ace-mono-industrial .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-mono-industrial .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(102, 108, 104, 0.50);\
+}\
+\
+.ace-mono-industrial .ace_marker-layer .ace_active_line {\
+  background: rgba(12, 13, 12, 0.25);\
+}\
+\
+.ace-mono-industrial .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(145, 153, 148, 0.40);\
+}\
+       \
+.ace-mono-industrial .ace_invisible {\
+  color: rgba(102, 108, 104, 0.50);\
+}\
+\
+.ace-mono-industrial .ace_keyword {\
+  color:#A39E64;\
+}\
+\
+.ace-mono-industrial .ace_keyword.ace_operator {\
+  color:#A8B3AB;\
+}\
+\
+.ace-mono-industrial .ace_constant {\
+  color:#E98800;\
+}\
+\
+.ace-mono-industrial .ace_constant.ace_numeric {\
+  color:#E98800;\
+}\
+\
+.ace-mono-industrial .ace_invalid {\
+  color:#FFFFFF;\
+background-color:rgba(153, 0, 0, 0.68);\
+}\
+\
+.ace-mono-industrial .ace_fold {\
+    background-color: #A8B3AB;\
+    border-color: #FFFFFF;\
+}\
+\
+.ace-mono-industrial .ace_support.ace_function {\
+  color:#588E60;\
+}\
+\
+.ace-mono-industrial .ace_storage {\
+  color:#C23B00;\
+}\
+\
+.ace-mono-industrial .ace_variable.ace_parameter {\
+  color:#648BD2;\
+}\
+\
+.ace-mono-industrial .ace_comment {\
+  color:#666C68;\
+background-color:#151C19;\
+}\
+\
+.ace-mono-industrial .ace_variable.ace_language {\
+  color:#648BD2;\
+}\
+\
+.ace-mono-industrial .ace_entity.ace_other.ace_attribute-name {\
+  color:#909993;\
+}\
+\
+.ace-mono-industrial .ace_entity.ace_name {\
+  color:#5778B6;\
+}\
+\
+.ace-mono-industrial .ace_entity.ace_name.ace_function {\
+  color:#A8B3AB;\
+}\
+\
+.ace-mono-industrial .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/monokai', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-monokai";
+exports.cssText = "\
+.ace-monokai .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-monokai .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-monokai .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-monokai .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-monokai .ace_scroller {\
+  background-color: #272822;\
+}\
+\
+.ace-monokai .ace_text-layer {\
+  cursor: text;\
+  color: #F8F8F2;\
+}\
+\
+.ace-monokai .ace_cursor {\
+  border-left: 2px solid #F8F8F0;\
+}\
+\
+.ace-monokai .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #F8F8F0;\
+}\
+ \
+.ace-monokai .ace_marker-layer .ace_selection {\
+  background: #49483E;\
+}\
+\
+.ace-monokai .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-monokai .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #49483E;\
+}\
+\
+.ace-monokai .ace_marker-layer .ace_active_line {\
+  background: #49483E;\
+}\
+\
+.ace-monokai .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #49483E;\
+}\
+       \
+.ace-monokai .ace_invisible {\
+  color: #49483E;\
+}\
+\
+.ace-monokai .ace_keyword {\
+  color:#F92672;\
+}\
+\
+.ace-monokai .ace_constant.ace_language {\
+  color:#AE81FF;\
+}\
+\
+.ace-monokai .ace_constant.ace_numeric {\
+  color:#AE81FF;\
+}\
+\
+.ace-monokai .ace_invalid {\
+  color:#F8F8F0;\
+background-color:#F92672;\
+}\
+\
+.ace-monokai .ace_invalid.ace_deprecated {\
+  color:#F8F8F0;\
+background-color:#AE81FF;\
+}\
+\
+.ace-monokai .ace_fold {\
+    background-color: #A6E22E;\
+    border-color: #F8F8F2;\
+}\
+\
+.ace-monokai .ace_support.ace_function {\
+  color:#66D9EF;\
+}\
+\
+.ace-monokai .ace_storage {\
+  color:#F92672;\
+}\
+\
+.ace-monokai .ace_storage.ace_type {\
+  font-style:italic;\
+color:#66D9EF;\
+}\
+\
+.ace-monokai .ace_variable.ace_parameter {\
+  font-style:italic;\
+color:#FD971F;\
+}\
+\
+.ace-monokai .ace_string {\
+  color:#E6DB74;\
+}\
+\
+.ace-monokai .ace_comment {\
+  color:#75715E;\
+}\
+\
+.ace-monokai .ace_entity.ace_other.ace_attribute-name {\
+  color:#A6E22E;\
+}\
+\
+.ace-monokai .ace_entity.ace_name.ace_function {\
+  color:#A6E22E;\
+}\
+\
+.ace-monokai .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/pastel_on_dark', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-pastel-on-dark";
+exports.cssText = "\
+.ace-pastel-on-dark .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-pastel-on-dark .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-pastel-on-dark .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-pastel-on-dark .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-pastel-on-dark .ace_scroller {\
+  background-color: #2C2828;\
+}\
+\
+.ace-pastel-on-dark .ace_text-layer {\
+  cursor: text;\
+  color: #8F938F;\
+}\
+\
+.ace-pastel-on-dark .ace_cursor {\
+  border-left: 2px solid #A7A7A7;\
+}\
+\
+.ace-pastel-on-dark .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #A7A7A7;\
+}\
+ \
+.ace-pastel-on-dark .ace_marker-layer .ace_selection {\
+  background: rgba(221, 240, 255, 0.20);\
+}\
+\
+.ace-pastel-on-dark .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-pastel-on-dark .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(255, 255, 255, 0.25);\
+}\
+\
+.ace-pastel-on-dark .ace_marker-layer .ace_active_line {\
+  background: rgba(255, 255, 255, 0.031);\
+}\
+\
+.ace-pastel-on-dark .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(221, 240, 255, 0.20);\
+}\
+       \
+.ace-pastel-on-dark .ace_invisible {\
+  color: rgba(255, 255, 255, 0.25);\
+}\
+\
+.ace-pastel-on-dark .ace_keyword {\
+  color:#757aD8;\
+}\
+\
+.ace-pastel-on-dark .ace_keyword.ace_operator {\
+  color:#797878;\
+}\
+\
+.ace-pastel-on-dark .ace_constant {\
+  color:#4FB7C5;\
+}\
+\
+.ace-pastel-on-dark .ace_constant.ace_language {\
+  color:#DE8E30;\
+}\
+\
+.ace-pastel-on-dark .ace_constant.ace_numeric {\
+  color:#CCCCCC;\
+}\
+\
+.ace-pastel-on-dark .ace_invalid {\
+  color:#F8F8F8;\
+background-color:rgba(86, 45, 86, 0.75);\
+}\
+\
+.ace-pastel-on-dark .ace_invalid.ace_illegal {\
+  color:#F8F8F8;\
+background-color:rgba(86, 45, 86, 0.75);\
+}\
+\
+.ace-pastel-on-dark .ace_invalid.ace_deprecated {\
+  text-decoration:underline;\
+font-style:italic;\
+color:#D2A8A1;\
+}\
+\
+.ace-pastel-on-dark .ace_fold {\
+    background-color: #757aD8;\
+    border-color: #8F938F;\
+}\
+\
+.ace-pastel-on-dark .ace_support.ace_function {\
+  color:#AEB2F8;\
+}\
+\
+.ace-pastel-on-dark .ace_string {\
+  color:#66A968;\
+}\
+\
+.ace-pastel-on-dark .ace_string.ace_regexp {\
+  color:#E9C062;\
+}\
+\
+.ace-pastel-on-dark .ace_comment {\
+  color:#A6C6FF;\
+}\
+\
+.ace-pastel-on-dark .ace_variable {\
+  color:#BEBF55;\
+}\
+\
+.ace-pastel-on-dark .ace_variable.ace_language {\
+  color:#C1C144;\
+}\
+\
+.ace-pastel-on-dark .ace_xml_pe {\
+  color:#494949;\
+}\
+\
+.ace-pastel-on-dark .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/solarized_dark', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-solarized-dark";
+exports.cssText = "\
+.ace-solarized-dark .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-solarized-dark .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-solarized-dark .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-solarized-dark .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-solarized-dark .ace_scroller {\
+  background-color: #002B36;\
+}\
+\
+.ace-solarized-dark .ace_text-layer {\
+  cursor: text;\
+  color: #93A1A1;\
+}\
+\
+.ace-solarized-dark .ace_cursor {\
+  border-left: 2px solid #D30102;\
+}\
+\
+.ace-solarized-dark .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #D30102;\
+}\
+ \
+.ace-solarized-dark .ace_marker-layer .ace_selection {\
+  background: #073642;\
+}\
+\
+.ace-solarized-dark .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-solarized-dark .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(147, 161, 161, 0.50);\
+}\
+\
+.ace-solarized-dark .ace_marker-layer .ace_active_line {\
+  background: #073642;\
+}\
+\
+.ace-solarized-dark .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #073642;\
+}\
+       \
+.ace-solarized-dark .ace_invisible {\
+  color: rgba(147, 161, 161, 0.50);\
+}\
+\
+.ace-solarized-dark .ace_keyword {\
+  color:#859900;\
+}\
+\
+.ace-solarized-dark .ace_constant.ace_language {\
+  color:#B58900;\
+}\
+\
+.ace-solarized-dark .ace_constant.ace_numeric {\
+  color:#D33682;\
+}\
+\
+.ace-solarized-dark .ace_fold {\
+    background-color: #268BD2;\
+    border-color: #93A1A1;\
+}\
+\
+.ace-solarized-dark .ace_support.ace_function {\
+  color:#268BD2;\
+}\
+\
+.ace-solarized-dark .ace_storage {\
+  color:#93A1A1;\
+}\
+\
+.ace-solarized-dark .ace_string {\
+  color:#2AA198;\
+}\
+\
+.ace-solarized-dark .ace_string.ace_regexp {\
+  color:#D30102;\
+}\
+\
+.ace-solarized-dark .ace_comment {\
+  font-style:italic;\
+color:#657B83;\
+}\
+\
+.ace-solarized-dark .ace_variable.ace_language {\
+  color:#268BD2;\
+}\
+\
+.ace-solarized-dark .ace_entity.ace_other.ace_attribute-name {\
+  color:#93A1A1;\
+}\
+\
+.ace-solarized-dark .ace_entity.ace_name.ace_function {\
+  color:#268BD2;\
+}\
+\
+.ace-solarized-dark .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/solarized_light', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = false;
+exports.cssClass = "ace-solarized-light";
+exports.cssText = "\
+.ace-solarized-light .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-solarized-light .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-solarized-light .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-solarized-light .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-solarized-light .ace_scroller {\
+  background-color: #FDF6E3;\
+}\
+\
+.ace-solarized-light .ace_text-layer {\
+  cursor: text;\
+  color: #586E75;\
+}\
+\
+.ace-solarized-light .ace_cursor {\
+  border-left: 2px solid #000000;\
+}\
+\
+.ace-solarized-light .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #000000;\
+}\
+ \
+.ace-solarized-light .ace_marker-layer .ace_selection {\
+  background: #073642;\
+}\
+\
+.ace-solarized-light .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-solarized-light .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(147, 161, 161, 0.50);\
+}\
+\
+.ace-solarized-light .ace_marker-layer .ace_active_line {\
+  background: #EEE8D5;\
+}\
+\
+.ace-solarized-light .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #073642;\
+}\
+       \
+.ace-solarized-light .ace_invisible {\
+  color: rgba(147, 161, 161, 0.50);\
+}\
+\
+.ace-solarized-light .ace_keyword {\
+  color:#859900;\
+}\
+\
+.ace-solarized-light .ace_constant.ace_language {\
+  color:#B58900;\
+}\
+\
+.ace-solarized-light .ace_constant.ace_numeric {\
+  color:#D33682;\
+}\
+\
+.ace-solarized-light .ace_fold {\
+    background-color: #268BD2;\
+    border-color: #586E75;\
+}\
+\
+.ace-solarized-light .ace_support.ace_function {\
+  color:#268BD2;\
+}\
+\
+.ace-solarized-light .ace_storage {\
+  color:#073642;\
+}\
+\
+.ace-solarized-light .ace_string {\
+  color:#2AA198;\
+}\
+\
+.ace-solarized-light .ace_string.ace_regexp {\
+  color:#D30102;\
+}\
+\
+.ace-solarized-light .ace_comment {\
+  color:#93A1A1;\
+}\
+\
+.ace-solarized-light .ace_variable.ace_language {\
+  color:#268BD2;\
+}\
+\
+.ace-solarized-light .ace_entity.ace_other.ace_attribute-name {\
+  color:#93A1A1;\
+}\
+\
+.ace-solarized-light .ace_entity.ace_name.ace_function {\
+  color:#268BD2;\
+}\
+\
+.ace-solarized-light .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/tomorrow', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = false;
+exports.cssClass = "ace-tomorrow";
+exports.cssText = "\
+.ace-tomorrow .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-tomorrow .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-tomorrow .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-tomorrow .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-tomorrow .ace_scroller {\
+  background-color: #FFFFFF;\
+}\
+\
+.ace-tomorrow .ace_text-layer {\
+  cursor: text;\
+  color: #4D4D4C;\
+}\
+\
+.ace-tomorrow .ace_cursor {\
+  border-left: 2px solid #AEAFAD;\
+}\
+\
+.ace-tomorrow .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #AEAFAD;\
+}\
+ \
+.ace-tomorrow .ace_marker-layer .ace_selection {\
+  background: #D6D6D6;\
+}\
+\
+.ace-tomorrow .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-tomorrow .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #D1D1D1;\
+}\
+\
+.ace-tomorrow .ace_marker-layer .ace_active_line {\
+  background: #EFEFEF;\
+}\
+\
+.ace-tomorrow .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #D6D6D6;\
+}\
+       \
+.ace-tomorrow .ace_invisible {\
+  color: #D1D1D1;\
+}\
+\
+.ace-tomorrow .ace_keyword {\
+  color:#8959A8;\
+}\
+\
+.ace-tomorrow .ace_keyword.ace_operator {\
+  color:#3E999F;\
+}\
+\
+.ace-tomorrow .ace_constant.ace_language {\
+  color:#F5871F;\
+}\
+\
+.ace-tomorrow .ace_constant.ace_numeric {\
+  color:#F5871F;\
+}\
+\
+.ace-tomorrow .ace_invalid {\
+  color:#FFFFFF;\
+background-color:#C82829;\
+}\
+\
+.ace-tomorrow .ace_invalid.ace_deprecated {\
+  color:#FFFFFF;\
+background-color:#8959A8;\
+}\
+\
+.ace-tomorrow .ace_fold {\
+    background-color: #4271AE;\
+    border-color: #4D4D4C;\
+}\
+\
+.ace-tomorrow .ace_support.ace_function {\
+  color:#4271AE;\
+}\
+\
+.ace-tomorrow .ace_storage {\
+  color:#8959A8;\
+}\
+\
+.ace-tomorrow .ace_storage.ace_type {\
+  color:#8959A8;\
+}\
+\
+.ace-tomorrow .ace_variable.ace_parameter {\
+  color:#F5871F;\
+}\
+\
+.ace-tomorrow .ace_string {\
+  color:#718C00;\
+}\
+\
+.ace-tomorrow .ace_string.ace_regexp {\
+  color:#C82829;\
+}\
+\
+.ace-tomorrow .ace_comment {\
+  color:#8E908C;\
+}\
+\
+.ace-tomorrow .ace_variable {\
+  color:#C82829;\
+}\
+\
+.ace-tomorrow .ace_meta.ace_tag {\
+  color:#C82829;\
+}\
+\
+.ace-tomorrow .ace_entity.ace_other.ace_attribute-name {\
+  color:#C82829;\
+}\
+\
+.ace-tomorrow .ace_entity.ace_name.ace_function {\
+  color:#4271AE;\
+}\
+\
+.ace-tomorrow .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-tomorrow .ace_markup.ace_heading {\
+  color:#718C00;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/tomorrow_night', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-tomorrow-night";
+exports.cssText = "\
+.ace-tomorrow-night .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-tomorrow-night .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-tomorrow-night .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-tomorrow-night .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-tomorrow-night .ace_scroller {\
+  background-color: #1D1F21;\
+}\
+\
+.ace-tomorrow-night .ace_text-layer {\
+  cursor: text;\
+  color: #C5C8C6;\
+}\
+\
+.ace-tomorrow-night .ace_cursor {\
+  border-left: 2px solid #AEAFAD;\
+}\
+\
+.ace-tomorrow-night .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #AEAFAD;\
+}\
+ \
+.ace-tomorrow-night .ace_marker-layer .ace_selection {\
+  background: #373B41;\
+}\
+\
+.ace-tomorrow-night .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-tomorrow-night .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #4B4E55;\
+}\
+\
+.ace-tomorrow-night .ace_marker-layer .ace_active_line {\
+  background: #282A2E;\
+}\
+\
+.ace-tomorrow-night .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #373B41;\
+}\
+       \
+.ace-tomorrow-night .ace_invisible {\
+  color: #4B4E55;\
+}\
+\
+.ace-tomorrow-night .ace_keyword {\
+  color:#B294BB;\
+}\
+\
+.ace-tomorrow-night .ace_keyword.ace_operator {\
+  color:#8ABEB7;\
+}\
+\
+.ace-tomorrow-night .ace_constant.ace_language {\
+  color:#DE935F;\
+}\
+\
+.ace-tomorrow-night .ace_constant.ace_numeric {\
+  color:#DE935F;\
+}\
+\
+.ace-tomorrow-night .ace_invalid {\
+  color:#CED2CF;\
+background-color:#DF5F5F;\
+}\
+\
+.ace-tomorrow-night .ace_invalid.ace_deprecated {\
+  color:#CED2CF;\
+background-color:#B798BF;\
+}\
+\
+.ace-tomorrow-night .ace_fold {\
+    background-color: #81A2BE;\
+    border-color: #C5C8C6;\
+}\
+\
+.ace-tomorrow-night .ace_support.ace_function {\
+  color:#81A2BE;\
+}\
+\
+.ace-tomorrow-night .ace_storage {\
+  color:#B294BB;\
+}\
+\
+.ace-tomorrow-night .ace_storage.ace_type {\
+  color:#B294BB;\
+}\
+\
+.ace-tomorrow-night .ace_variable.ace_parameter {\
+  color:#DE935F;\
+}\
+\
+.ace-tomorrow-night .ace_string {\
+  color:#B5BD68;\
+}\
+\
+.ace-tomorrow-night .ace_string.ace_regexp {\
+  color:#CC6666;\
+}\
+\
+.ace-tomorrow-night .ace_comment {\
+  color:#969896;\
+}\
+\
+.ace-tomorrow-night .ace_variable {\
+  color:#CC6666;\
+}\
+\
+.ace-tomorrow-night .ace_meta.ace_tag {\
+  color:#CC6666;\
+}\
+\
+.ace-tomorrow-night .ace_entity.ace_other.ace_attribute-name {\
+  color:#CC6666;\
+}\
+\
+.ace-tomorrow-night .ace_entity.ace_name.ace_function {\
+  color:#81A2BE;\
+}\
+\
+.ace-tomorrow-night .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-tomorrow-night .ace_markup.ace_heading {\
+  color:#B5BD68;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/tomorrow_night_blue', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-tomorrow-night-blue";
+exports.cssText = "\
+.ace-tomorrow-night-blue .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-tomorrow-night-blue .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-tomorrow-night-blue .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-tomorrow-night-blue .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-tomorrow-night-blue .ace_scroller {\
+  background-color: #002451;\
+}\
+\
+.ace-tomorrow-night-blue .ace_text-layer {\
+  cursor: text;\
+  color: #FFFFFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_cursor {\
+  border-left: 2px solid #FFFFFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FFFFFF;\
+}\
+ \
+.ace-tomorrow-night-blue .ace_marker-layer .ace_selection {\
+  background: #003F8E;\
+}\
+\
+.ace-tomorrow-night-blue .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-tomorrow-night-blue .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #404F7D;\
+}\
+\
+.ace-tomorrow-night-blue .ace_marker-layer .ace_active_line {\
+  background: #00346E;\
+}\
+\
+.ace-tomorrow-night-blue .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #003F8E;\
+}\
+       \
+.ace-tomorrow-night-blue .ace_invisible {\
+  color: #404F7D;\
+}\
+\
+.ace-tomorrow-night-blue .ace_keyword {\
+  color:#EBBBFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_keyword.ace_operator {\
+  color:#99FFFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_constant.ace_language {\
+  color:#FFC58F;\
+}\
+\
+.ace-tomorrow-night-blue .ace_constant.ace_numeric {\
+  color:#FFC58F;\
+}\
+\
+.ace-tomorrow-night-blue .ace_invalid {\
+  color:#FFFFFF;\
+background-color:#F99DA5;\
+}\
+\
+.ace-tomorrow-night-blue .ace_invalid.ace_deprecated {\
+  color:#FFFFFF;\
+background-color:#EBBBFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_fold {\
+    background-color: #BBDAFF;\
+    border-color: #FFFFFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_support.ace_function {\
+  color:#BBDAFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_storage {\
+  color:#EBBBFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_storage.ace_type {\
+  color:#EBBBFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_variable.ace_parameter {\
+  color:#FFC58F;\
+}\
+\
+.ace-tomorrow-night-blue .ace_string {\
+  color:#D1F1A9;\
+}\
+\
+.ace-tomorrow-night-blue .ace_string.ace_regexp {\
+  color:#FF9DA4;\
+}\
+\
+.ace-tomorrow-night-blue .ace_comment {\
+  color:#7285B7;\
+}\
+\
+.ace-tomorrow-night-blue .ace_variable {\
+  color:#FF9DA4;\
+}\
+\
+.ace-tomorrow-night-blue .ace_meta.ace_tag {\
+  color:#FF9DA4;\
+}\
+\
+.ace-tomorrow-night-blue .ace_entity.ace_other.ace_attribute-name {\
+  color:#FF9DA4;\
+}\
+\
+.ace-tomorrow-night-blue .ace_entity.ace_name.ace_function {\
+  color:#BBDAFF;\
+}\
+\
+.ace-tomorrow-night-blue .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-tomorrow-night-blue .ace_markup.ace_heading {\
+  color:#D1F1A9;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/tomorrow_night_bright', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-tomorrow-night-bright";
+exports.cssText = "\
+.ace-tomorrow-night-bright .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-tomorrow-night-bright .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-tomorrow-night-bright .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-tomorrow-night-bright .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-tomorrow-night-bright .ace_scroller {\
+  background-color: #000000;\
+}\
+\
+.ace-tomorrow-night-bright .ace_text-layer {\
+  cursor: text;\
+  color: #DEDEDE;\
+}\
+\
+.ace-tomorrow-night-bright .ace_cursor {\
+  border-left: 2px solid #9F9F9F;\
+}\
+\
+.ace-tomorrow-night-bright .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #9F9F9F;\
+}\
+ \
+.ace-tomorrow-night-bright .ace_marker-layer .ace_selection {\
+  background: #424242;\
+}\
+\
+.ace-tomorrow-night-bright .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-tomorrow-night-bright .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #343434;\
+}\
+\
+.ace-tomorrow-night-bright .ace_marker-layer .ace_active_line {\
+  background: #2A2A2A;\
+}\
+\
+.ace-tomorrow-night-bright .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #424242;\
+}\
+       \
+.ace-tomorrow-night-bright .ace_invisible {\
+  color: #343434;\
+}\
+\
+.ace-tomorrow-night-bright .ace_keyword {\
+  color:#C397D8;\
+}\
+\
+.ace-tomorrow-night-bright .ace_keyword.ace_operator {\
+  color:#70C0B1;\
+}\
+\
+.ace-tomorrow-night-bright .ace_constant.ace_language {\
+  color:#E78C45;\
+}\
+\
+.ace-tomorrow-night-bright .ace_constant.ace_numeric {\
+  color:#E78C45;\
+}\
+\
+.ace-tomorrow-night-bright .ace_invalid {\
+  color:#CED2CF;\
+background-color:#DF5F5F;\
+}\
+\
+.ace-tomorrow-night-bright .ace_invalid.ace_deprecated {\
+  color:#CED2CF;\
+background-color:#B798BF;\
+}\
+\
+.ace-tomorrow-night-bright .ace_fold {\
+    background-color: #7AA6DA;\
+    border-color: #DEDEDE;\
+}\
+\
+.ace-tomorrow-night-bright .ace_support.ace_function {\
+  color:#7AA6DA;\
+}\
+\
+.ace-tomorrow-night-bright .ace_storage {\
+  color:#C397D8;\
+}\
+\
+.ace-tomorrow-night-bright .ace_storage.ace_type {\
+  color:#C397D8;\
+}\
+\
+.ace-tomorrow-night-bright .ace_variable.ace_parameter {\
+  color:#E78C45;\
+}\
+\
+.ace-tomorrow-night-bright .ace_string {\
+  color:#B9CA4A;\
+}\
+\
+.ace-tomorrow-night-bright .ace_string.ace_regexp {\
+  color:#D54E53;\
+}\
+\
+.ace-tomorrow-night-bright .ace_comment {\
+  color:#969896;\
+}\
+\
+.ace-tomorrow-night-bright .ace_variable {\
+  color:#D54E53;\
+}\
+\
+.ace-tomorrow-night-bright .ace_meta.ace_tag {\
+  color:#D54E53;\
+}\
+\
+.ace-tomorrow-night-bright .ace_entity.ace_other.ace_attribute-name {\
+  color:#D54E53;\
+}\
+\
+.ace-tomorrow-night-bright .ace_entity.ace_name.ace_function {\
+  color:#7AA6DA;\
+}\
+\
+.ace-tomorrow-night-bright .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-tomorrow-night-bright .ace_markup.ace_heading {\
+  color:#B9CA4A;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/tomorrow_night_eighties', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-tomorrow-night-eighties";
+exports.cssText = "\
+.ace-tomorrow-night-eighties .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-tomorrow-night-eighties .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_scroller {\
+  background-color: #2D2D2D;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_text-layer {\
+  cursor: text;\
+  color: #CCCCCC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_cursor {\
+  border-left: 2px solid #CCCCCC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #CCCCCC;\
+}\
+ \
+.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {\
+  background: #515151;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #6A6A6A;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_marker-layer .ace_active_line {\
+  background: #393939;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #515151;\
+}\
+       \
+.ace-tomorrow-night-eighties .ace_invisible {\
+  color: #6A6A6A;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_keyword {\
+  color:#CC99CC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_keyword.ace_operator {\
+  color:#66CCCC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_constant.ace_language {\
+  color:#F99157;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_constant.ace_numeric {\
+  color:#F99157;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_invalid {\
+  color:#CDCDCD;\
+background-color:#F2777A;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {\
+  color:#CDCDCD;\
+background-color:#CC99CC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_fold {\
+    background-color: #6699CC;\
+    border-color: #CCCCCC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_support.ace_function {\
+  color:#6699CC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_storage {\
+  color:#CC99CC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_storage.ace_type {\
+  color:#CC99CC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_variable.ace_parameter {\
+  color:#F99157;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_string {\
+  color:#99CC99;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_comment {\
+  color:#999999;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_variable {\
+  color:#F2777A;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_meta.ace_tag {\
+  color:#F2777A;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name {\
+  color:#F2777A;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function {\
+  color:#6699CC;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-tomorrow-night-eighties .ace_markup.ace_heading {\
+  color:#99CC99;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/twilight', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-twilight";
+exports.cssText = "\
+.ace-twilight .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-twilight .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-twilight .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-twilight .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-twilight .ace_scroller {\
+  background-color: #141414;\
+}\
+\
+.ace-twilight .ace_text-layer {\
+  cursor: text;\
+  color: #F8F8F8;\
+}\
+\
+.ace-twilight .ace_cursor {\
+  border-left: 2px solid #A7A7A7;\
+}\
+\
+.ace-twilight .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #A7A7A7;\
+}\
+ \
+.ace-twilight .ace_marker-layer .ace_selection {\
+  background: rgba(221, 240, 255, 0.20);\
+}\
+\
+.ace-twilight .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-twilight .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid rgba(255, 255, 255, 0.25);\
+}\
+\
+.ace-twilight .ace_marker-layer .ace_active_line {\
+  background: rgba(255, 255, 255, 0.031);\
+}\
+\
+.ace-twilight .ace_marker-layer .ace_selected_word {\
+  border: 1px solid rgba(221, 240, 255, 0.20);\
+}\
+       \
+.ace-twilight .ace_invisible {\
+  color: rgba(255, 255, 255, 0.25);\
+}\
+\
+.ace-twilight .ace_keyword {\
+  color:#CDA869;\
+}\
+\
+.ace-twilight .ace_constant {\
+  color:#CF6A4C;\
+}\
+\
+.ace-twilight .ace_invalid.ace_illegal {\
+  color:#F8F8F8;\
+background-color:rgba(86, 45, 86, 0.75);\
+}\
+\
+.ace-twilight .ace_invalid.ace_deprecated {\
+  text-decoration:underline;\
+font-style:italic;\
+color:#D2A8A1;\
+}\
+\
+.ace-twilight .ace_support {\
+  color:#9B859D;\
+}\
+\
+.ace-twilight .ace_fold {\
+    background-color: #AC885B;\
+    border-color: #F8F8F8;\
+}\
+\
+.ace-twilight .ace_support.ace_function {\
+  color:#DAD085;\
+}\
+\
+.ace-twilight .ace_storage {\
+  color:#F9EE98;\
+}\
+\
+.ace-twilight .ace_string {\
+  color:#8F9D6A;\
+}\
+\
+.ace-twilight .ace_string.ace_regexp {\
+  color:#E9C062;\
+}\
+\
+.ace-twilight .ace_comment {\
+  font-style:italic;\
+color:#5F5A60;\
+}\
+\
+.ace-twilight .ace_variable {\
+  color:#7587A6;\
+}\
+\
+.ace-twilight .ace_xml_pe {\
+  color:#494949;\
+}\
+\
+.ace-twilight .ace_meta.ace_tag {\
+  color:#AC885B;\
+}\
+\
+.ace-twilight .ace_entity.ace_name.ace_function {\
+  color:#AC885B;\
+}\
+\
+.ace-twilight .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}\
+\
+.ace-twilight .ace_markup.ace_heading {\
+  color:#CF6A4C;\
+}\
+\
+.ace-twilight .ace_markup.ace_list {\
+  color:#F9EE98;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+ace.define('ace/theme/vibrant_ink', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+
+exports.isDark = true;
+exports.cssClass = "ace-vibrant-ink";
+exports.cssText = "\
+.ace-vibrant-ink .ace_editor {\
+  border: 2px solid rgb(159, 159, 159);\
+}\
+\
+.ace-vibrant-ink .ace_editor.ace_focus {\
+  border: 2px solid #327fbd;\
+}\
+\
+.ace-vibrant-ink .ace_gutter {\
+  background: #e8e8e8;\
+  color: #333;\
+}\
+\
+.ace-vibrant-ink .ace_print_margin {\
+  width: 1px;\
+  background: #e8e8e8;\
+}\
+\
+.ace-vibrant-ink .ace_scroller {\
+  background-color: #0F0F0F;\
+}\
+\
+.ace-vibrant-ink .ace_text-layer {\
+  cursor: text;\
+  color: #FFFFFF;\
+}\
+\
+.ace-vibrant-ink .ace_cursor {\
+  border-left: 2px solid #FFFFFF;\
+}\
+\
+.ace-vibrant-ink .ace_cursor.ace_overwrite {\
+  border-left: 0px;\
+  border-bottom: 1px solid #FFFFFF;\
+}\
+ \
+.ace-vibrant-ink .ace_marker-layer .ace_selection {\
+  background: #6699CC;\
+}\
+\
+.ace-vibrant-ink .ace_marker-layer .ace_step {\
+  background: rgb(198, 219, 174);\
+}\
+\
+.ace-vibrant-ink .ace_marker-layer .ace_bracket {\
+  margin: -1px 0 0 -1px;\
+  border: 1px solid #404040;\
+}\
+\
+.ace-vibrant-ink .ace_marker-layer .ace_active_line {\
+  background: #333333;\
+}\
+\
+.ace-vibrant-ink .ace_marker-layer .ace_selected_word {\
+  border: 1px solid #6699CC;\
+}\
+       \
+.ace-vibrant-ink .ace_invisible {\
+  color: #404040;\
+}\
+\
+.ace-vibrant-ink .ace_keyword {\
+  color:#FF6600;\
+}\
+\
+.ace-vibrant-ink .ace_constant {\
+  color:#339999;\
+}\
+\
+.ace-vibrant-ink .ace_constant.ace_numeric {\
+  color:#99CC99;\
+}\
+\
+.ace-vibrant-ink .ace_invalid {\
+  color:#CCFF33;\
+background-color:#000000;\
+}\
+\
+.ace-vibrant-ink .ace_invalid.ace_deprecated {\
+  color:#CCFF33;\
+background-color:#000000;\
+}\
+\
+.ace-vibrant-ink .ace_fold {\
+    background-color: #FFCC00;\
+    border-color: #FFFFFF;\
+}\
+\
+.ace-vibrant-ink .ace_support.ace_function {\
+  color:#FFCC00;\
+}\
+\
+.ace-vibrant-ink .ace_variable.ace_parameter {\
+  font-style:italic;\
+}\
+\
+.ace-vibrant-ink .ace_string {\
+  color:#66FF00;\
+}\
+\
+.ace-vibrant-ink .ace_string.ace_regexp {\
+  color:#44B4CC;\
+}\
+\
+.ace-vibrant-ink .ace_comment {\
+  color:#9933CC;\
+}\
+\
+.ace-vibrant-ink .ace_entity.ace_other.ace_attribute-name {\
+  font-style:italic;\
+color:#99CC99;\
+}\
+\
+.ace-vibrant-ink .ace_entity.ace_name.ace_function {\
+  color:#FFCC00;\
+}\
+\
+.ace-vibrant-ink .ace_markup.ace_underline {\
+    text-decoration:underline;\
+}";
+
+    var dom = require("../lib/dom");
+    dom.importCssString(exports.cssText, exports.cssClass);
+});
